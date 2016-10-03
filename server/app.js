@@ -3,7 +3,9 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
+var pg = require('pg');
 var portDecision = process.env.PORT || 4040;
+// var connectionString = 'postgress://localhost:5432/dbName';
 
 app.use(bodyParser.json());
 
