@@ -4,7 +4,7 @@ var lock = new Auth0Lock( 'vMz8kOdOn1pbp739hs7OTRytCZX11bv3', 'johnmilton.auth0.
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('homeController', ['$scope','$http', function($scope, $http){
+myApp.controller('logInController', ['$scope','$http', function($scope, $http){
   console.log('NG');
 
   $scope.init = function(){
