@@ -1,10 +1,11 @@
-console.log('sourced');
-
 var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(["$routeProvider", function($routeProvider){
   $routeProvider.
-
+    when("/", {
+      templateUrl:"/partials/logIn.html",
+      controller: "logInController"
+    }).
     when("/home", {
       templateUrl:"/partials/home.html",
       controller: "homeController"
@@ -16,10 +17,14 @@ myApp.config(["$routeProvider", function($routeProvider){
     when("/loans",{
       templateUrl: "partials/loans.html",
       controller: "loansController"
+    }).
+    when("/logOut", {
+      templateUrl: "partials/logIn.html",
+      controller:"logOutController"
+    }).
+    otherwise({
+      redirectTo: "/"
     });
-    otherwuse({
-      redirectTo: "/home"
-    });
-//change this so each route 
+//change this so each route requries auth0 verification *****************************
 
 }]);//end config routing
