@@ -25,6 +25,7 @@ $scope.logIn = function(){
     }
   });//end lock.show
 };//end scope.login function
+$scope.logOut
 $scope.init();
 }]);//end homeController
 
