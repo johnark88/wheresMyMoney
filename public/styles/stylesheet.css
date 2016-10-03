@@ -1,4 +1,29 @@
-body {
-  min-height: 75rem;
-  padding-top: 6rem;
+/*body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}*/
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #159b9b;
 }
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #555;}
+
+ul.topnav li.icon {display: none;}

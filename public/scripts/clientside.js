@@ -18,10 +18,6 @@ myApp.config(["$routeProvider", function($routeProvider){
       templateUrl: "partials/loans.html",
       controller: "loansController"
     }).
-    when("/logOut", {
-      templateUrl: "partials/logIn.html",
-      controller:"logOutController"
-    }).
     otherwise({
       redirectTo: "/"
     });
