@@ -27,7 +27,7 @@ app.get('/investments', function(req,res){
     }else {
       var resultsArray = [];
       var queryResults = client.query('SELECT * FROM investments');
-    query.on('row', function(row){
+    queryResults.on('row', function(row){
         resultsArray.push(row);
         console.log(resultsArray);
       });//end query.on row
