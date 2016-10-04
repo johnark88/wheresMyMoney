@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 var pg = require('pg');
 var portDecision = process.env.PORT || 4040;
-// var connectionString = 'postgress://localhost:5432/dbName';
+var connectionString = 'postgress://localhost:5432/wmm';
 
 app.use(bodyParser.json());
 
@@ -17,5 +17,30 @@ var index = require('./routes/index');
 app.listen(portDecision, function(){
   console.log('Im listening on ', portDecision);
 });
+
+//************ where id matches that of logged in user **********************
+app.get('/investments', function(req,res){
+  console.log('in app.get investments');
+  pg.connect(connectionString, function(err,client,done){
+    if (err) {
+      console.log(err);
+    }else {
+      var resultsArray = [];
+      var queryResults = client.query('SELECT * FROM investments');
+    query.on('row', function(row){
+        resultsArray.push(row);
+        console.log(resultsArray);
+      });//end query.on row
+    queryResults.on('end', function(){
+        done();
+          return res.json(resultsArray);
+       });//end queryResults.on end
+    }//end if err else
+  });//end pg connect
+});//end app.get investments
+
+
+
+
 //use public folder
 app.use(express.static('public'));
