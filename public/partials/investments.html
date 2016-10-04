@@ -1,20 +1,11 @@
 <link rel="stylesheet" href="/styles/investmentsstyle.css" media="screen" title="no title">
 
-<div ng-controller="investmentsController">
   <div class="atFirst">
     <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button>
-    <p>
-    investments
-    </p>
-    <p ng-repeat="inv in allInvestments">
-    {{inv.bank}} has {{inv.amountinvested}} purchased on {{inv.purchasedate}}
-  </p>
+    <form name="myForm">
+      <label for="singleSelect"> Please select from the menu: </label><br>
+        <select name="singleSelect" ng-model="data.singleSelect">
+          <option ng-repeat="inv in allInvestments">
+            Invested {{inv.amountinvested}} in {{inv.stocksymbol}} at {{inv.bank}} on {{inv.purchasedate}}  </option>
+        </select><br>
   </div>
-
-
-
-
-
-
-
-</div>  <!-- end controller -->
