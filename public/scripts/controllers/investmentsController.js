@@ -16,5 +16,9 @@ console.log('in get invest');
   });//end then
 };//end get.invest
 
+$scope.test = function(currentInv){
+console.log(currentInv);
+};
+
 
 }]);//end controller

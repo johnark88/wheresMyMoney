@@ -4,8 +4,9 @@
     <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button>
     <form name="myForm">
       <label for="singleSelect"> Please select from the menu: </label><br>
-        <select name="singleSelect" ng-model="data.singleSelect">
-          <option ng-repeat="inv in allInvestments">
-            Invested {{inv.amountinvested}} in {{inv.stocksymbol}} at {{inv.bank}} on {{inv.purchasedate}}  </option>
-        </select><br>
+        <select name="currentInv" ng-model="currentInv" ng-change="test(currentInv)">
+          <option ng-repeat="inv in allInvestments track by inv.user_id" value="{{inv.user_id}}">
+            Invested {{inv.amountinvested}} in {{inv.stocksymbol}} at {{inv.bank}} on {{inv.purchasedate}}
+           </option>
+        </select>
   </div>
