@@ -9,7 +9,7 @@ myApp.controller('logInController', ['$scope','$http', function($scope, $http){
     if( JSON.parse(localStorage.getItem('userProfile'))){
       $scope.userProfile = JSON.parse(localStorage.getItem('userProfile'));
       console.log('logged In as:', $scope.userProfile);
-      console.log('userid', $scope.userProfile.identities.user_id);
+      console.log('userid', $scope.userProfile.user_id);
     }else{
       emptyLocalStorage();
     }//end else

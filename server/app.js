@@ -19,7 +19,7 @@ app.listen(portDecision, function(){
 });
 
 //************ where id matches that of logged in user **********************
-app.get('/investments', function(req,res){
+app.get('/investments', urlencodedParser, function(req,res){
   console.log('in app.get investments');
   pg.connect(connectionString, function(err,client,done){
     if (err) {
