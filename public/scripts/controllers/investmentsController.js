@@ -77,6 +77,12 @@ $http({
 });//end then function
 };//end saveChanges scope
 
+$scope.saveEditChanges = function(){
+var editsToSend = {
+  amountinvested: $scope.selectedInv
+};//end object to send
+console.log(editsToSend, 'EDITS EDITS ');
 
+};//end save changes to DB record
 
 }]);//end controller
