@@ -10,15 +10,16 @@ console.log('in get invest');
     method: 'GET',
     url: '/investments'
   }).then(function(response){
-    console.log('WORK WORK WORK', response);
+    // console.log('WORK WORK WORK', response);
     $scope.allInvestments = response.data;
-    console.log('WORK AGAIN',$scope.allInvestments);
+    // console.log('WORK AGAIN',$scope.allInvestments);
   });//end then
 };//end get.invest
 
-$scope.test = function(currentInv){
-console.log(currentInv);
+//ng option select
+$scope.inv = function(selectedInv){
+console.log(selectedInv);
+console.log($scope.selectedInv);
 };
-
 
 }]);//end controller
