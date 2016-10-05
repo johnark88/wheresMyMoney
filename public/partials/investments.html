@@ -10,3 +10,14 @@
            </option>
         </select>
   </div>
+
+<div>
+  <form name="editInvForm" novalidate>
+    <div ng-repeat="inv in allInvestments">
+      <input type="text" name="invBank" ng-model="inv.bank" required>
+      <input type="text" name="invAmount" ng-model="inv.amountinvested" required>
+      <input type="text" name="invStock" ng-model="inv.stocksymbol" required>
+
+    </div>
+  </form>
+</div>
