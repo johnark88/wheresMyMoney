@@ -6,7 +6,7 @@
 
   <div class="select">
     <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button>
-    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.bank  for inv in allInvestments"></select>
+    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol  for inv in allInvestments"></select>
   </div>
 
 <!-- Edit Form  -->

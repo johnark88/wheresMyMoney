@@ -1,6 +1,18 @@
 myApp.controller('investmentsController',['$scope', '$http', function($scope,$http){
   console.log('investmentsController');
 
+
+
+///*******************FORMAT INPUTS WITH $ sign*****************
+///******************* Clear form on save *****************
+///******************* send user thats logged to db to track data *****************
+///******************* add calendar date picker to sold and new  *****************
+
+
+
+
+
+
 //declare allInvestments var global
 var allInvestments;
 
@@ -26,7 +38,6 @@ $scope.getInvest = function() {
   });//end then
 };//end get.invest
 
-
 //ng option select
 //on select show edit form
 $scope.inv = function(selectedInv){
@@ -44,7 +55,9 @@ $scope.addNew = function(){
   $scope.editForm = true;
 };//end addNew scope
 
+//save new Investment
 $scope.saveNewInv = function(){
+  //new object to send to DB
   var newInv = {
     bank: $scope.invBank,
     amountinvested: $scope.invAmountInvested,
@@ -52,17 +65,18 @@ $scope.saveNewInv = function(){
     pl:$scope.invProfitLoss,
     date: $scope.invBought
   };
-
+//log object
 console.log(newInv,'ObjectToSend');
 
 $http({
-  method:'POST',
-  url: '/newInv',
-  data: newInv
-}).then(function(response){
+    method:'POST',
+    url: '/newInv',
+    data: newInv
+  }).then(function(response){
   console.log(response);
 });//end then function
-
 };//end saveChanges scope
+
+
 
 }]);//end controller
