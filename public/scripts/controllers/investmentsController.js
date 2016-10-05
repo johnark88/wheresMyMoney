@@ -17,10 +17,22 @@ console.log('in get invest');
 };//end get.invest
 
 //ng option select
+//on select show edit form
 $scope.inv = function(selectedInv){
 console.log(selectedInv);
 console.log($scope.selectedInv);
+$scope.form=true;
+};//end scope.inv
 
-};
+//on add new show form
+//allow edit of all fields 
+$scope.addNew = function(){
+$scope.form=true;
+$scope.trueFalse = false;
+
+
+};//end addNew scope
+
+
 
 }]);//end controller
