@@ -9,15 +9,29 @@
     <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.bank  for inv in allInvestments"></select>
   </div>
 
-
-<div class="container" ng-show="form">
+<!-- Edit Form  -->
+<div class="editContainer" ng-hide="editForm">
   <form name="editInvForm" novalidate>
     <div ng-model="selectedInv" >
-        Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="{{trueFalse}}" ng-model="invBank">
-        Amount Invested: <input type="text" value="{{selectedInv.amountinvested}}" required ng-model="invAmountInvested"><br>
-        Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="{{trueFalse}}" ng-model="invStockSymbol">
-        Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required ng-model="invProfitLoss"><br>
-        Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required ng-model="invSoldDate"><br>
+        Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
+        Amount Invested: <input type="text" value="{{selectedInv.amountinvested}}" required><br>
+        Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true">
+        Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required><br>
+        Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required><br>
+      <button type="button" class="btn btn-sm btn-primary" ng-click="saveChanges()" name="button"> Save Changes</button>
+    </div>
+  </form>
+</div>
+
+<!-- Add New Form  -->
+<div class="container" ng-hide="addNewForm">
+  <form name="addNewForm" novalidate>
+    <div ng-model="selectedInv" >
+        Bank:  <input type="text" required  ng-model="invBank">
+        Amount Invested: <input type="text"  required ng-model="invAmountInvested"><br>
+        Stock Symbol:  <input type="text" required  ng-model="invStockSymbol">
+        Profit/Loss: <input type="text"  required ng-model="invProfitLoss"><br>
+        Date Sold:   <input type="text"  required ng-model="invSoldDate"><br>
       <button type="button" class="btn btn-sm btn-primary" ng-click="saveChanges()" name="button"> Save Changes</button>
     </div>
   </form>

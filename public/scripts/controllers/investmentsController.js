@@ -1,6 +1,9 @@
 myApp.controller('investmentsController',['$scope', '$http', function($scope,$http){
   console.log('investmentsController');
 var allInvestments;
+$scope.addNewForm = true;
+$scope.editForm = true;
+
 $scope.getInvest = function() {
 console.log('in get invest');
 
@@ -21,16 +24,15 @@ console.log('in get invest');
 $scope.inv = function(selectedInv){
 console.log(selectedInv);
 console.log($scope.selectedInv);
-$scope.form=true;
+$scope.editForm = false;
+$scope.addNewForm = true;
 };//end scope.inv
 
 //on add new show form
-//allow edit of all fields 
+//allow edit of all fields
 $scope.addNew = function(){
-$scope.form=true;
-$scope.trueFalse = false;
-
-
+$scope.addNewForm = false;
+$scope.editForm = true;
 };//end addNew scope
 
 
