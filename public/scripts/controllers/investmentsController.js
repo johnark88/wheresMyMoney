@@ -41,15 +41,28 @@ $scope.inv = function(selectedInv){
 //allow edit of all fields
 $scope.addNew = function(){
   $scope.addNewForm = false;
-    $scope.editForm = true;
+  $scope.editForm = true;
+};//end addNew scope
+
+$scope.saveNewInv = function(){
+  var newInv = {
+    bank: $scope.invBank,
+    amountinvested: $scope.invAmountInvested,
+    stockSymbol: $scope.invStockSymbol,
+    pl:$scope.invProfitLoss,
+    date: $scope.invBought
+  };
+
+console.log(newInv,'ObjectToSend');
 
 $http({
-  method:'POST'
-  url: ''
+  method:'POST',
+  url: '/newInv',
+  data: newInv
 }).then(function(response){
   console.log(response);
 });//end then function
 
-};//end addNew scope
+};//end saveChanges scope
 
 }]);//end controller

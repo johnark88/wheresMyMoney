@@ -18,7 +18,7 @@
         Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true">
         Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required><br>
         Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required><br>
-      <button type="button" class="btn btn-sm btn-primary" ng-click="saveChanges()" name="button"> Save Changes</button>
+      <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button"> Save Changes</button>
     </div>
   </form>
 </div>
@@ -32,8 +32,8 @@
         Amount Invested: <input type="text"  required ng-model="invAmountInvested"><br>
         Stock Symbol:  <input type="text" required  ng-model="invStockSymbol">
         Profit/Loss: <input type="text"  required ng-model="invProfitLoss"><br>
-        Date Sold:   <input type="text"  required ng-model="invSoldDate"><br>
-      <button type="button" class="btn btn-sm btn-primary" ng-click="saveChanges()" name="button"> Save Changes</button>
+        Date Bought:   <input type="text"  required ng-model="invBought"><br>
+      <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button"> Save </button>
     </div>
   </form>
 </div>

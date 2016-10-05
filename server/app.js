@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 //index route
 var index = require('./routes/index');
 
+var postRoute = require('./routes/postRoute');
+app.use('/', postRoute);
 
 //choose port send respons
 app.listen(portDecision, function(){
