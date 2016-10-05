@@ -20,6 +20,7 @@ console.log('in get invest');
 $scope.inv = function(selectedInv){
 console.log(selectedInv);
 console.log($scope.selectedInv);
+
 };
 
 }]);//end controller

@@ -1,19 +1,20 @@
 <link rel="stylesheet" href="/styles/investmentsstyle.css" media="screen" title="no title">
 
   <div class="first">
+    <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Add new Investment</button>
     <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button>
-    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.bank for inv in allInvestments"></select>
+    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.bank  for inv in allInvestments"></select>
   </div>
-<button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Add new Investment</button>
 
-<div>
+
+<div class="container">
   <form name="editInvForm" novalidate>
     <div ng-model="selectedInv" >
         Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
-        Amount Invested: <input type="text" value="{{selectedInv.amountinvested}}" required>
+        Amount Invested: <input type="text" value="{{selectedInv.amountinvested}}" required><br>
         Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true">
-        Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required>
-        Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required>
+        Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required><br>
+        Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required><br>
       <button type="button" class="btn btn-sm btn-primary" ng-click="saveUpdate" name="button"> Save Changes</button>
     </div>
   </form>
