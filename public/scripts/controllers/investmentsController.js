@@ -42,6 +42,14 @@ $scope.inv = function(selectedInv){
 $scope.addNew = function(){
   $scope.addNewForm = false;
     $scope.editForm = true;
+
+$http({
+  method:'POST'
+  url: ''
+}).then(function(response){
+  console.log(response);
+});//end then function
+
 };//end addNew scope
 
 }]);//end controller
