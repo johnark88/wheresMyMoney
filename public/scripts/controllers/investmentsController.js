@@ -77,9 +77,10 @@ $http({
 });//end then function
 };//end saveChanges scope
 
+//save changes to investments and send to DB 
 $scope.saveEditChanges = function(){
 var editsToSend = {
-  amountinvested: $scope.selectedInv
+  amountinvested: $scope.amtInv
 };//end object to send
 console.log(editsToSend, 'EDITS EDITS ');
 
