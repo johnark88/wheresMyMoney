@@ -1,18 +1,6 @@
 myApp.controller('investmentsController',['$scope', '$http', function($scope,$http){
   console.log('investmentsController');
 
-
-
-///*******************FORMAT INPUTS WITH $ sign*****************
-///******************* Clear form on save *****************
-///******************* send user thats logged to db to track data *****************
-///******************* add calendar date picker to sold and new  *****************
-
-
-
-
-
-
 //declare allInvestments var global
 var allInvestments;
 
@@ -43,6 +31,9 @@ $scope.getInvest = function() {
 $scope.inv = function(selectedInv){
   console.log(selectedInv);
   console.log($scope.selectedInv);
+  if ($scope.selectedInv == null) {
+    $scope.selectedInv = false;
+  }
 
     $scope.editForm = false;
       $scope.addNewForm = true;
