@@ -7,6 +7,7 @@ router.post('/newInv', function(req,res){
 console.log('post new route');
 console.log('object recived ', req.body);
 
+//listing out req dot body objects
   var bank = req.body.bank;
   var amountInvested = req.body.amountinvested;
   var stockSymbol = req.body.stockSymbol;
@@ -15,6 +16,7 @@ console.log('object recived ', req.body);
   //console log each to double check
     console.log(bank, amountInvested, stockSymbol, profitLoss,purchaseDate);
 
+//connection to the data base
 pg.connect(connectionString, function(err,client,done){
   if (err) {
     console.log(err);
