@@ -74,15 +74,17 @@ $scope.saveEditChanges = function(){
 var editsToSend = {
   amountinvested: $scope.amtInv,
   profitLoss: $scope.profitLoss,
-  dateSold: $scope.dateSold
+  dateSold: $scope.dateSold,
+  invId: $scope.selectedInv.investmentid
 };//end object to send
 console.log(editsToSend, 'EDITS EDITS ');
 
   $http({
     method: 'PUT',
-    url: '/'
-  })
-
+    url: '/updateInv',
+    data: editsToSend
+  }).then(function(response){
+    console.log(response);
+  });//end then
 };//end save changes to DB record
-
 }]);//end controller
