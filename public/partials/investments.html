@@ -14,8 +14,7 @@
   <form name="editInvForm" novalidate>
     <div ng-model="selectedInv" >
         Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
-
-        Amount Invested: <input ng-model="amtInv"type="text" value="{{selectedInv.amountinvested}}" required><br>
+        Amount Invested: <input type="text" value="{{selectedInv.amountinvested}}" required><br>
         Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true">
         Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required><br>
         Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required><br>
