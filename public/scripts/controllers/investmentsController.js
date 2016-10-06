@@ -31,10 +31,6 @@ $scope.getInvest = function() {
 $scope.inv = function(selectedInv){
   console.log(selectedInv);
   console.log($scope.selectedInv);
-  if ($scope.selectedInv == null) {
-    $scope.selectedInv = false;
-  }
-
     $scope.editForm = false;
       $scope.addNewForm = true;
 };//end scope.inv
@@ -66,8 +62,8 @@ $http({
   }).then(function(response){
   console.log(response);
 });//end then function
+};//end saveNewInv scope
 
-};//end saveChanges scope
 
 //save changes to investments and send to DB
 $scope.saveEditChanges = function(){
