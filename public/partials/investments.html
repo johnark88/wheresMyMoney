@@ -25,7 +25,7 @@
         </div>
 
         <div>
-          <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="text" ng-model="dateSold" required> <br>
+          <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="date" ng-model="dateSold" required> <br>
         </div>
 
           <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button"> Save Changes</button>
@@ -42,7 +42,7 @@
         Amount Invested: <input type="text"  required ng-model="invAmountInvested"><br>
         Stock Symbol:  <input type="text" required  ng-model="invStockSymbol">
         Profit/Loss: <input type="text"  required ng-model="invProfitLoss"><br>
-        Date Bought:   <input type="text"  required ng-model="invBought"><br>
+        Date Bought:   <input type="date"  required ng-model="invBought"><br>
       <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button"> Save </button>
     </div>
   </form>
