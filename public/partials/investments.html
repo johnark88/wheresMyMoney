@@ -6,20 +6,31 @@
 
   <div class="select">
     <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button>
-    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol  for inv in allInvestments"></select>
+    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol for inv in allInvestments"></select>
   </div>
 
 <!-- Edit Form  -->
 <div class="editContainer" ng-hide="editForm">
   <form name="editInvForm" novalidate>
     <div ng-model="selectedInv" >
-        Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
 
-        Amount Invested: <input ng-model="amtInv"type="text" value="{{selectedInv.amountinvested}}" required><br>
-        Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true">
-        Profit/Loss: <input type="text" value="{{selectedInv.profitloss}}" required><br>
-        Date Sold:   <input type="text" value="{{selectedInv.solddate}}" required><br>
-      <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button"> Save Changes</button>
+          Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
+        <div>
+          Currently Invested: {{selectedInv.amountinvested}} || New Amount: <input ng-model="amtInv" type="text" value="" required>
+        </div>
+
+          Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true"><br>
+
+        <div>
+            Current P/L: {{selectedInv.profitloss}} || Profit/Loss: <input ng-model="profitLoss"type="text"  required> <br>
+        </div>
+
+        <div>
+          <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="text" ng-model="dateSold" required> <br>
+        </div>
+
+          <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button"> Save Changes</button>
+
     </div>
   </form>
 </div>
