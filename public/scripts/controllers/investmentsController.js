@@ -81,6 +81,10 @@ console.log(editsToSend, 'EDITS EDITS ');
     data: editsToSend
   }).then(function(response){
     console.log(response);
+    $scope.amtInv = "";
+    $scope.profitLoss = "";
+    $scope.dateSold = "";
+    $scope.selectedInv.investmentid = "";
   });//end then
 };//end save changes to DB record
 }]);//end controller

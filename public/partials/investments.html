@@ -9,7 +9,7 @@
 
 <!-- Edit Form  -->
 <div class="editContainer" ng-hide="editForm">
-  <form name="editInvForm" novalidate id"editInvForm">
+  <form name="editInvForm" novalidate id="editInvForm">
     <div ng-model="selectedInv" >
           Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
         <div>
@@ -22,7 +22,7 @@
         <div class='row'>
           <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="date" ng-model="dateSold"> <br>
         </div>
-          <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid || editInvForm.$pristine"> Save Changes</button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid"> Save Changes</button>
     </div>
   </form>
 </div>
