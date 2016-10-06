@@ -37,7 +37,7 @@
         Stock Symbol:  <input type="text" required  ng-model="invStockSymbol">
         Profit/Loss: <input type="number"  required ng-model="invProfitLoss"><br>
         Date Bought:   <input type="date"  required ng-model="invBought"><br>
-      <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button"> Save </button>
+      <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button" ng-disabled="addNewForm.$invalid"> Save </button>
     </div>
   </form>
 </div>

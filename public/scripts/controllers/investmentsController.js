@@ -44,6 +44,7 @@ $scope.addNew = function(){
 
 //save new Investment
 $scope.saveNewInv = function(){
+
   //new object to send to DB
   var newInv = {
     bank: $scope.invBank,
@@ -61,6 +62,11 @@ $http({
     data: newInv
   }).then(function(response){
   console.log(response);
+  $scope.invBank = "";
+  $scope.invAmountInvested = "";
+  $scope.invStockSymbol = "";
+  $scope.invProfitLoss = "";
+  $scope.invBought = "";
 });//end then function
 };//end saveNewInv scope
 
