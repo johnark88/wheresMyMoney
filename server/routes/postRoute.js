@@ -7,7 +7,7 @@ router.post('/newInv', function(req,res){
 console.log('post new route');
 console.log('object recived ', req.body);
 
-//listing out req dot body objects
+//listing out req dot body objects for db INSERT 
   var bank = req.body.bank;
   var amountInvested = req.body.amountinvested;
   var stockSymbol = req.body.stockSymbol;

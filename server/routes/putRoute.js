@@ -5,12 +5,13 @@ var pg = require('pg');
 
 router.put('/updateInv', function(req,res){
   console.log('in router put ');
-
+    //breaking up req dot body to use for db UPDATE 
   var newAmtInv = req.body.amountinvested;
   var profitLoss = req.body.profitLoss;
   var dateSold =req.body.dateSold;
   var investmentid = req.body.invId;
-  console.log(investmentid, newAmtInv, profitLoss,dateSold);
+
+
 //connection to the data base
 pg.connect(connectionString, function(err,client,done){
   if (err) {
