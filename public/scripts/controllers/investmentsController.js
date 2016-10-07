@@ -27,7 +27,6 @@ $scope.init = function() {
 //ng option select
 //on select show edit form
 $scope.inv = function(selectedInv){
-  console.log(selectedInv);
   console.log($scope.selectedInv);
     $scope.editForm = false;
       $scope.addNewForm = true;
@@ -98,7 +97,18 @@ console.log(editsToSend, 'EDITS EDITS ');
   });//end then
 };//end save changes to DB record
 
+$scope.DeleteInvest = function(){
+console.log($scope.selectedInv);
 
+var objectToDelete = {
+investments:$scope.selectedInv
+};
+
+  $http({
+    
+  })
+
+};//end delete function
 
 
 //get all investments on load
