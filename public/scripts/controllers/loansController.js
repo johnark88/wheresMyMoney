@@ -10,5 +10,4 @@ myApp.controller('loansController', ['$scope','$http', function($scope, $http){
 //button to delete current loan
 
 
-
-  }]);
+}]);
