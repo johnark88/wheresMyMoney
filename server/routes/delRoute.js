@@ -1,5 +1,7 @@
 var router = require('express').Router();
 var path = require('path');
+var connectionString = 'postgress://localhost:5432/wmm';
+var pg = require('pg');
 
 router.delete('/', function(req,res){
 
@@ -13,14 +15,6 @@ router.delete('/', function(req,res){
     }//end else
   });//end pg connect
   });//end router dot put
-
-
-
-});//end router dot delete
-
-
-
-
 
 
 module.exports = router;
