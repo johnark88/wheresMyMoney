@@ -31,6 +31,10 @@ $scope.inv = function(selectedInv){
   console.log($scope.selectedInv);
     $scope.editForm = false;
       $scope.addNewForm = true;
+      //clear Inputs on new selection
+      $scope.amtInv = "";
+      $scope.profitLoss = "";
+      $scope.dateSold = "";
 };//end scope.inv
 
 //on add new show form
