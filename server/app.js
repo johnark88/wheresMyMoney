@@ -9,6 +9,11 @@ var connectionString = 'postgress://localhost:5432/wmm';
 
 app.use(bodyParser.json());
 
+//choose port send respons
+app.listen(portDecision, function(){
+  console.log('Im listening on ', portDecision);
+});
+
 //index route
 var index = require('./routes/index');
 
@@ -16,13 +21,14 @@ var index = require('./routes/index');
 var postRoute = require('./routes/postRoute');
 app.use('/', postRoute);
 
+//put Route
 var putRoute = require('./routes/putRoute');
 app.use('/', putRoute);
 
-//choose port send respons
-app.listen(portDecision, function(){
-  console.log('Im listening on ', portDecision);
-});
+var delRoute =require('./routes/delRoute');
+app.use('/', delRoute);
+
+
 
 //************ where id matches that of logged in user **********************
 app.get('/investments', urlencodedParser, function(req,res){
