@@ -98,6 +98,9 @@ console.log(editsToSend, 'EDITS EDITS ');
   });//end then
 };//end save changes to DB record
 
+
+
+
 //get all investments on load
 $scope.init();
 }]);//end controller
