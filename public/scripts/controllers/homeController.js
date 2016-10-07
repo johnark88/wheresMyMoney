@@ -17,8 +17,7 @@ myApp.controller('homeController', ['$scope','$http', function($scope, $http){
   }).then(function(response){
     console.log(response.data.articles);
       $scope.newsArticles = response.data.articles;
-  });
-  };
-  
+  });//end then on http
+};//end init scope for news
   $scope.init();
-  }]);
+}]);//end init 
