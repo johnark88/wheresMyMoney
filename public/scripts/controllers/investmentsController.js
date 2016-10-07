@@ -62,6 +62,7 @@ $http({
     data: newInv
   }).then(function(response){
   console.log(response);
+  //clear input fields 
   $scope.invBank = "";
   $scope.invAmountInvested = "";
   $scope.invStockSymbol = "";
@@ -87,6 +88,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     data: editsToSend
   }).then(function(response){
     console.log(response);
+    //clear input fields
     $scope.amtInv = "";
     $scope.profitLoss = "";
     $scope.dateSold = "";
