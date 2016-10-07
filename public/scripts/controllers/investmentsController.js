@@ -9,7 +9,7 @@ $scope.addNewForm = true;
 $scope.editForm = true;
 
 //Getting all investments
-$scope.getInvest = function() {
+$scope.init = function() {
   console.log('in get invest');
 
     //declare global var as array
@@ -20,9 +20,7 @@ $scope.getInvest = function() {
       method: 'GET',
       url: '/investments'
         }).then(function(response){
-          // console.log('WORK WORK WORK', response);
           $scope.allInvestments = response.data;
-          // console.log('WORK AGAIN',$scope.allInvestments);
   });//end then
 };//end get.invest
 
@@ -62,7 +60,7 @@ $http({
     data: newInv
   }).then(function(response){
   console.log(response);
-  //clear input fields 
+  //clear input fields
   $scope.invBank = "";
   $scope.invAmountInvested = "";
   $scope.invStockSymbol = "";
@@ -95,4 +93,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
 };//end save changes to DB record
+
+//get all investments on load
+$scope.init();
 }]);//end controller
