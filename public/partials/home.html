@@ -2,6 +2,13 @@
   <p>
     Welcome to Where's my money
   </p>
+
+  <div class="Totals">
+    <p>Total Invested : {{}}</p>
+    <p>Total you owe : {{}}
+    <p> Total P/L : {{}}</p>
+  </div>
+
   <p> Checkout todays business headlines:    </p>
 
   <div id="newsDisplay">
@@ -9,7 +16,7 @@
           <img src="{{news.urlToImage}}" alt="" class="expand" /><br>
             {{news.title}}<br>
             {{news.author}}<br>
-            {{news.description}}
+            <a href="{{news.url}}">Link</a>
           </p>
            <a href="https://newsapi.org/"> News provided by NewsAPI.org</a>
   </div>
