@@ -2,3 +2,14 @@
 p{
   margin: 12px;
 }
+#linkBack{
+font-size: 10px;
+}
+#newsDisplay{
+  margin: 20px;
+  font-family: serif;
+  font-size: 10px;
+}
+img.expand{
+  width: 7em;
+}

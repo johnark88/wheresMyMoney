@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="/styles/homeStyleSheet.css" media="screen" title="no title">
-<p>
-Welcome to Where's my money
-</p>
-<button ng-click="getNews()" type="button" name="button"></button>
-<p>News provided by https://newsapi.org/ <p>
+  <p>
+    Welcome to Where's my money
+  </p>
+
+  <div id="newsDisplay">
+    <button ng-click="getNews()" type="button" name="button"></button>
+      <p ng-repeat="news in newsArticles">
+          <img src="{{news.urlToImage}}" alt="" class="expand" />
+            {{news.title}}<br>
+            {{news.author}}<br>
+            {{news.description}}
+          </p>
+          <p id="linkBack">News provided by https://newsapi.org/ <p>
+  </div>

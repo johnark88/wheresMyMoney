@@ -9,7 +9,7 @@
     <label for="singleSelect"> Please select from the menu: </label><br>
       <select name="currentLoan" ng-model="currentLoan" ng-change="test(currentLoan)">
         <option ng-repeat="loan in allLoans track by loan.user_id" value="{{loan.user_id}}">
-          You own this place, this much.
+          You owe this place, this much.
          </option>
       </select>
 </div>

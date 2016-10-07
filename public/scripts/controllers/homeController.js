@@ -7,19 +7,18 @@ myApp.controller('homeController', ['$scope','$http', function($scope, $http){
 
   //newsapi.org top news from Wall Street Journal
   var newsAPI = 'https://newsapi.org/v1/articles?source=the-wall-street-journal&sortBy=top&apiKey=c28f8197835d4d338e3bd3b0456e68cd';
-  var newsArticles;
+  var newsArticles = [];
 
 
-  $scope.getNews =function(){
-
+  $scope.init =function(){
   $http({
     method:'GET',
     url: newsAPI,
   }).then(function(response){
-    console.log(response);
+    console.log(response.data.articles);
+      $scope.newsArticles = response.data.articles;
   });
-
   };
-
-
+  
+  $scope.init();
   }]);
