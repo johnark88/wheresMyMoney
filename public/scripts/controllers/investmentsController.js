@@ -75,6 +75,7 @@ $http({
 
 //save changes to investments and send to DB
 $scope.saveEditChanges = function(){
+
 var editsToSend = {
   amountinvested: $scope.amtInv,
   profitLoss: $scope.profitLoss,
@@ -98,7 +99,6 @@ console.log(editsToSend, 'EDITS EDITS ');
 };//end save changes to DB record
 
 $scope.DeleteInvest = function(){
-
 
 var objectToDelete = {
   amountinvested: $scope.amtInv,

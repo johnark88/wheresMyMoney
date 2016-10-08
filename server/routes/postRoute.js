@@ -7,14 +7,18 @@ router.post('/newInv', function(req,res){
 console.log('post new route');
 console.log('object recived ', req.body);
 
-//listing out req dot body objects for db INSERT 
+//listing out req dot body objects for db INSERT
   var bank = req.body.bank;
   var amountInvested = req.body.amountinvested;
   var stockSymbol = req.body.stockSymbol;
   var profitLoss = req.body.pl;
   var purchaseDate = req.body.date;
+  
   //console log each to double check
     console.log(bank, amountInvested, stockSymbol, profitLoss,purchaseDate);
+
+    var newDate = purchaseDate.split("T").shift();
+    console.log(newDate,'split pop that string');
 
 //connection to the data base
 pg.connect(connectionString, function(err,client,done){
@@ -22,7 +26,7 @@ pg.connect(connectionString, function(err,client,done){
     console.log(err);
   }else {
     console.log('Connected to DB');
-    client.query('INSERT INTO investments (bank,stocksymbol,amountinvested,profitloss,purchasedate) VALUES($1, $2, $3, $4, $5)', [bank , stockSymbol , amountInvested , profitLoss , purchaseDate]);
+    client.query('INSERT INTO investments (bank,stocksymbol,amountinvested,profitloss,purchasedate) VALUES($1, $2, $3, $4, $5)', [bank , stockSymbol , amountInvested , profitLoss , newDate]);
     res.send({success: true});
   }//end else
 });//end pg connect
