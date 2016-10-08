@@ -5,7 +5,7 @@ var pg = require('pg');
 
 router.put('/updateInv', function(req,res){
   console.log('in router put ');
-    //breaking up req dot body to use for db UPDATE 
+    //breaking up req dot body to use for db UPDATE
   var newAmtInv = req.body.amountinvested;
   var profitLoss = req.body.profitLoss;
   var dateSold =req.body.dateSold;

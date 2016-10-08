@@ -101,8 +101,11 @@ $scope.DeleteInvest = function(){
 console.log($scope.selectedInv);
 
 var objectToDelete = {
-investments:$scope.selectedInv
-};
+  amountinvested: $scope.amtInv,
+  profitLoss: $scope.profitLoss,
+  dateSold: $scope.dateSold,
+  invId: $scope.selectedInv.investmentid
+};//end object to send
 
   $http({
     method: 'DELETE',
@@ -113,7 +116,6 @@ investments:$scope.selectedInv
   });//end then for http
 
 };//end delete function
-
 
 //get all investments on load
 $scope.init();
