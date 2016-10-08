@@ -3,6 +3,13 @@
     Welcome to Where's my money
   </p>
 
+  <div id="quotesDisplay" ng-repeat="stocks in stockQuotes">
+        {{stocks.symbol}}
+        {{stocks.price}}
+        {{stocks.change}}
+  </div>
+
+
   <div class="Totals">
     <p>Total Invested : {{}}</p>
     <p>Total you owe : {{}}

@@ -13,3 +13,10 @@ font-size: 10px;
 img.expand{
   width: 15em;
 }
+
+#quotesDisplay{
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+  margin: 10px;
+}

@@ -98,7 +98,7 @@ console.log(editsToSend, 'EDITS EDITS ');
 };//end save changes to DB record
 
 $scope.DeleteInvest = function(){
-console.log($scope.selectedInv);
+
 
 var objectToDelete = {
   amountinvested: $scope.amtInv,
@@ -106,7 +106,7 @@ var objectToDelete = {
   dateSold: $scope.dateSold,
   invId: $scope.selectedInv.investmentid
 };//end object to send
-
+console.log('delete delete  clientside : ', objectToDelete);
   $http({
     method: 'DELETE',
     url:'/deleteInv',
@@ -114,7 +114,6 @@ var objectToDelete = {
   }).then(function(response){
     console.log(response);
   });//end then for http
-
 };//end delete function
 
 //get all investments on load
