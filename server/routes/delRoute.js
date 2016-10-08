@@ -3,7 +3,7 @@ var path = require('path');
 var connectionString = 'postgress://localhost:5432/wmm';
 var pg = require('pg');
 
-router.delete('/', function(req,res){
+router.delete('/deleteInv', function(req,res){
 
   pg.connect(connectionString, function(err,client,done){
     if (err) {

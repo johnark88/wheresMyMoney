@@ -105,8 +105,12 @@ investments:$scope.selectedInv
 };
 
   $http({
-    
-  })
+    method: 'DELETE',
+    url:'/deleteInv',
+    data: objectToDelete
+  }).then(function(response){
+    console.log(response);
+  });//end then for http
 
 };//end delete function
 
