@@ -47,6 +47,27 @@ $scope.addNewLoan = function(){
   $scope.editLoanForm = true;
 };//end addNew scope
 
+$scope.saveNewLoan = function(){
+  console.log('save new loan');
+
+var newLoanToSend = {
+  fromwho: $scope.fromwho,
+  amount:$scope.loanAmount,
+  duration:$scope.loanDuration,
+  intrestRate: $scope.loanIntrestRate,
+  monthlyPay: $scope.loanMonthlyPayment,
+  notes:$scope.loanNotes
+};//end object to send 
+
+  $http({
+    method:'POST',
+    url: '/saveNewLoan',
+    data: newLoanToSend
+  }).then(function(response){
+    console.log(response);
+  });//end then on HTTP
+};//save new loan to the DB
+
 
 
 };//end scope dot init
