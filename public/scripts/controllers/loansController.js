@@ -51,13 +51,13 @@ $scope.saveNewLoan = function(){
   console.log('save new loan');
 
 var newLoanToSend = {
-  fromwho: $scope.fromwho,
+  fromwho: $scope.loanFromWho,
   amount:$scope.loanAmount,
   duration:$scope.loanDuration,
   intrestRate: $scope.loanIntrestRate,
   monthlyPay: $scope.loanMonthlyPayment,
   notes:$scope.loanNotes
-};//end object to send 
+};//end object to send
 
   $http({
     method:'POST',
