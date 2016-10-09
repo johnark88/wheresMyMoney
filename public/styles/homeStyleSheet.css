@@ -1,17 +1,21 @@
-
 p{
-  margin: 12px;
+  margin: 10px;
 }
+
 #linkBack{
 font-size: 10px;
 }
 #newsDisplay{
-  margin: 20px;
-  font-family: serif;
   font-size: 10px;
+  font-family: sans-serif;
+  padding-right: 20px;
+  margin-left: 100px;
+  margin-bottom: 10px;
+  list-style-type: none;
 }
+
 img.expand{
-  width: 15em;
+width: 10em;
 }
 
 #quotesDisplay{

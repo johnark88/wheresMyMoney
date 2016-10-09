@@ -9,21 +9,19 @@
         {{stocks.change}}
   </div>
 
-
   <div class="Totals">
     <p>Total Invested : {{}}</p>
     <p>Total you owe : {{}}
     <p> Total P/L : {{}}</p>
   </div>
 
-  <p> Checkout todays business headlines:    </p>
+  <p> Checkout todays business headlines: </p>
 
-  <div id="newsDisplay">
-      <p ng-repeat="news in newsArticles">
-          <img src="{{news.urlToImage}}" alt="" class="expand" /><br>
-            {{news.title}}<br>
-            {{news.author}}<br>
-            <a ng-href="{{news.url}}">Link</a>
-          </p>
-           <a href="https://newsapi.org/"> News provided by NewsAPI.org</a>
-  </div>
+
+  <ul id="newsDisplay" class="flex-container"  ng-repeat="news in newsArticles" class="flex-item">
+    <li>
+    <img id="img" src="{{news.urlToImage}}" alt="" class="expand" />
+    {{news.title}} {{news.author}} <a ng-href="{{news.url}}">Link</a>
+    </li>
+</ul>
+<a href="https://newsapi.org/"> News provided by NewsAPI.org</a>

@@ -2,9 +2,13 @@ var router = require('express').Router();
 var path = require('path');
 var connectionString = 'postgress://localhost:5432/wmm';
 var pg = require('pg');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({extended: true});
+router.use(bodyParser.json());
 
-router.delete('/deleteInv',function(req,res){
 
+router.delete('/deleteInv',urlencodedParser,function(req,res){
+console.log('req dot body check  ',  req.body);
 var newAmtInv = req.body.amountinvested;
 var profitLoss = req.body.profitLoss;
 var dateSold = req.body.dateSold;
