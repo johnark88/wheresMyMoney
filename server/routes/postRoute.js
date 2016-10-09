@@ -13,10 +13,11 @@ console.log('object recived ', req.body);
   var stockSymbol = req.body.stockSymbol;
   var profitLoss = req.body.pl;
   var purchaseDate = req.body.date;
-  
+
   //console log each to double check
     console.log(bank, amountInvested, stockSymbol, profitLoss,purchaseDate);
 
+    //breaks of the time stamp leaving only the date
     var newDate = purchaseDate.split("T").shift();
     console.log(newDate,'split pop that string');
 
@@ -26,6 +27,7 @@ pg.connect(connectionString, function(err,client,done){
     console.log(err);
   }else {
     console.log('Connected to DB');
+    //insert new investment to the DB 
     client.query('INSERT INTO investments (bank,stocksymbol,amountinvested,profitloss,purchasedate) VALUES($1, $2, $3, $4, $5)', [bank , stockSymbol , amountInvested , profitLoss , newDate]);
     res.send({success: true});
   }//end else

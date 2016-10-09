@@ -107,6 +107,7 @@ var objectToDelete = {
   invId: $scope.selectedInv.investmentid
 };//end object to send
 console.log('delete delete  clientside : ', objectToDelete);
+
   $http({
     method: 'DELETE',
     url:'/deleteInv',
