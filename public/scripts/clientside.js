@@ -1,5 +1,9 @@
 var myApp = angular.module('myApp', ['ngRoute']);
-
+// if (userid == undefined) {
+// $scope.role = guest
+// }else {
+//   $scope.role =user
+// }
 myApp.config(["$routeProvider", function($routeProvider){
   $routeProvider.
     when("/", {

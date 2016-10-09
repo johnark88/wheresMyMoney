@@ -1,5 +1,5 @@
 var lock = new Auth0Lock( 'vMz8kOdOn1pbp739hs7OTRytCZX11bv3', 'johnmilton.auth0.com');
-var logOutUrl = 'http://devjana.net/uncl/api';
+var logOutUrl = 'https://johnmilton.auth0.com/v2/logout?';
 
 myApp.controller('logInController', ['$scope','$http', function($scope, $http){
   console.log('NG');
@@ -24,7 +24,7 @@ $scope.logIn = function(){
       localStorage.setItem('userToken', token);
       localStorage.setItem( 'userProfile', JSON.stringify(profile));
       location.reload();
-    }
+    }//end else
   });//end lock.show
 };//end scope.login function
 $scope.logOut = function(){
