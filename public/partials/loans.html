@@ -1,15 +1,22 @@
 <link rel="stylesheet" href="/styles/loanstylesheet.css" media="screen" title="no title">
 
 
+  <div class="selectLoan">
+    <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> Add new loan </button>
+    <select ng-change="loan(selectedLoan)" ng-model="selectedLoan" ng-options="loan as loan.fromwho for loan in allLoans"></select>
+    </select>
+  </div>
 
-<div class="first">
-  <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> Add new loan </button>
-  <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Loans </button>
-  <form name="myForm">
-    <label for="singleSelect"> Please select from the menu: </label><br>
-      <select name="currentLoan" ng-model="currentLoan" ng-change="test(currentLoan)">
-        <option ng-repeat="loan in allLoans track by loan.user_id" value="{{loan.user_id}}">
-          You owe this place, this much.
-         </option>
-      </select>
-</div>
+
+
+  <div class="editLoan" ng-hide="editLoanForm">
+      <form name="editLoanForm">
+        <label for="singleSelect"> Please select from the menu: </label>
+      </form>
+  </div>
+
+
+  <div class="newLoan" ng-hide="newLoanForm">
+    <form name="newLoanForm">
+    </form>
+  </div>

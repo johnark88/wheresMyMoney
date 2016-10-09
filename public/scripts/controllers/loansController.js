@@ -10,4 +10,27 @@ myApp.controller('loansController', ['$scope','$http', function($scope, $http){
 //button to delete current loan
 
 
+//declare allInvestments var global
+var allLoans;
+
+//hide all forms on page load
+$scope.editLoanForm = true;
+$scope.newLoanForm = true;
+
+$scope.init = function(){
+console.log('loans init');
+  //make it an array 
+  $scope.allLoans = [];
+
+$http({
+  method: 'GET',
+  url:''
+}).then(function(response){
+  console.log(response,'loans from server');
+});//end then from http
+
+
+
+};//end scope dot init
+
 }]);
