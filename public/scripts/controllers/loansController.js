@@ -32,7 +32,7 @@ $http({
 
 //ng option select
 //on select show edit form
-$scope.loan = function(selectedInv){
+$scope.loan = function(selectedLoan){
   console.log($scope.selectedLoan);
     $scope.editLoanForm = false;
       $scope.newLoanForm = true;
