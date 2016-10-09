@@ -4,14 +4,27 @@
   <div class="selectLoan">
     <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> Add new loan </button>
     <select ng-change="loan(selectedLoan)" ng-model="selectedLoan" ng-options="loan as loan.fromwho for loan in allLoans"></select>
-    </select>
   </div>
 
 
 
-  <div class="editLoan" ng-hide="editLoanForm">
-      <form name="editLoanForm">
-        <label for="singleSelect"> Please select from the menu: </label>
+  <div class="editcontainer" ng-hide="editLoanForm">
+      <form name="editLoanForm" novalidate id="editLoanForm">
+        <div ng-model="selectedLoan" >
+              From :  <input type="text" value="{{selectedLoan.fromwho}}"required ng-readonly="true">
+            <div>
+              Amount : <input  type="text" value="{{selectedLoan.amount}}" required ng-readonly="true">
+            </div>
+              Intrest Rate :  <input type="text" value="{{selectedLoan.intrestrate}}" required ng-readonly="true"><br>
+            <div>
+                Current P/L: {{selectedInv.profitloss}} || <input placeholder="Profit/Loss" ng-model="profitLoss"type="number"  required> <br>
+            </div>
+            <div>
+              <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="date" ng-model="dateSold"> <br>
+            </div>
+              <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid"> Save Changes</button>
+              <button type="button" class="btn btn-sm btn-primary" ng-click="DeleteInvest()" name="button"> Delete Investment</button>
+        </div>
       </form>
   </div>
 
