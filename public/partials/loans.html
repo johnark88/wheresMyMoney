@@ -16,14 +16,15 @@
               Amount : <input  type="text" value="{{selectedLoan.amount}}" required ng-readonly="true">
             </div>
               Intrest Rate :  <input type="text" value="{{selectedLoan.intrestrate}}" required ng-readonly="true"><br>
+              Duration : <input type="text" name="name" value="{{selectedLoan.duration}}" required ng-readonly="true"><br>
             <div>
-                Current P/L: {{selectedInv.profitloss}} || <input placeholder="Profit/Loss" ng-model="profitLoss"type="number"  required> <br>
+             Monthly Payment : <input type="text" value="{{selectedLoan.monthlypayment}}" ng-readonly="true" required> <br>
             </div>
             <div>
-              <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="date" ng-model="dateSold"> <br>
+              <p>Notes : {{selectedLoan.notes}} || <input type="text" ng-model="newNotes" required placeholder="Add Notes here"> <br>
             </div>
-              <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid"> Save Changes</button>
-              <button type="button" class="btn btn-sm btn-primary" ng-click="DeleteInvest()" name="button"> Delete Investment</button>
+              <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editLoanForm.$invalid"> Save Changes</button>
+              <!-- <button type="button" class="btn btn-sm btn-primary" ng-click="DeleteInvest()" name="button"> Delete Investment</button> -->
         </div>
       </form>
   </div>
