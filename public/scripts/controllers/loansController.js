@@ -10,7 +10,7 @@ myApp.controller('loansController', ['$scope','$http', function($scope, $http){
 //button to delete current loan
 
 
-//declare allInvestments var global
+//declare all loans var global
 var allLoans;
 
 //hide all forms on page load
@@ -41,6 +41,12 @@ $scope.loan = function(selectedInv){
       // $scope.profitLoss = "";
       // $scope.dateSold = "";
 };//end scope.inv
+
+$scope.addNewLoan = function(){
+  $scope.newLoanForm = false;
+  $scope.editLoanForm = true;
+};//end addNew scope
+
 
 
 };//end scope dot init

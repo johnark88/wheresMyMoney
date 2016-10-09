@@ -31,6 +31,15 @@
 
 
   <div class="newLoan" ng-hide="newLoanForm">
-    <form name="newLoanForm">
+    <form name="newLoanForm" novalidate id="newLoanForm">
+      <div ng-model="selectedLoan" >
+          <input placeholder="From Who" type="text" ng-model="loanFromWho" required>
+          <input placeholder="Amount" type="number" ng-model="loanAmount" required><br>
+          <input placeholder="Duration" type="text" ng-model="loanDuration" required>
+          <input placeholder="Intrest Rate" type="number" ng-model="loanIntrestRate" required><br>
+          <input placeholder="Monthly Payment" type="number" ng-model="loanMonthlyPayment" required><br>
+          <input placeholder="Notes" type="text" ng-model="loanNotes" required><br>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewLoan()" name="button" ng-disabled="newLoanForm.$invalid"> Save </button>
+      </div>
     </form>
   </div>
