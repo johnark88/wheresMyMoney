@@ -18,10 +18,8 @@
   <p> Checkout todays business headlines: </p>
 
 
-  <ul id="newsDisplay" class="flex-container"  ng-repeat="news in newsArticles" class="flex-item">
-    <li>
-    <img id="img" src="{{news.urlToImage}}" alt="" class="expand" />
-    {{news.title}} {{news.author}} <a ng-href="{{news.url}}">Link</a>
-    </li>
+  <ul id="newsDisplay" class="flex-container"  ng-repeat="news in newsArticles">
+    <li><img id="img" src="{{news.urlToImage}}" alt="" class="expand" /></li>
+    <li id="listItem">{{news.title}} </li>
+    <li id="listItem"><a ng-href="{{news.url}}">Link</a></li>
 </ul>
-<a href="https://newsapi.org/"> News provided by NewsAPI.org</a>

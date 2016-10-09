@@ -18,15 +18,15 @@ myApp.controller('homeController', ['$scope','$http', function($scope, $http){
     console.log(response.data.articles);
       $scope.newsArticles = response.data.articles;
     });
-    
+
   //get stock quotes from yahoo
-  $http({
-    method: 'GET',
-    url: yahoo,
-  }).then(function(response){
-    console.log(response.data.query.results.row);
-    $scope.stockQuotes = response.data.query.results.row;
-  });//end http get for yahoo
+  // $http({
+  //   method: 'GET',
+  //   url: yahoo,
+  // }).then(function(response){
+  //   console.log(response.data.query.results.row);
+  //   $scope.stockQuotes = response.data.query.results.row;
+  // });//end http get for yahoo
 };//end init scope for news and stock quotes
   $scope.init();
-}]);//end init
+}]);//end controller
