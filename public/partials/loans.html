@@ -15,10 +15,10 @@
             <div>
               Amount : <input  type="text" value="{{selectedLoan.amount}}" required ng-readonly="true">
             </div>
-              Curent Intrest Rate : {{selectedLoan.interestRate}}  <input type="text" placeholder="New Interest Rate"><br>
-              Duration : <input type="text" name="name" value="{{selectedLoan.duration}}" required ng-readonly="true"><br>
+              Curent Interest Rate : {{selectedLoan.interestRate}}  <input type="text" placeholder="New Interest Rate" ng-model="newRate"><br>
+              Current Duration : {{selectedLoan.duration}} <input type="text" name="name" placeholder="New Duration" required ng-model="newDuration"><br>
             <div>
-             Monthly Payment : <input type="text" value="{{selectedLoan.monthlypayment}}" ng-readonly="true" required> <br>
+              Current Monthly Payment : {{selectedLoan.monthlypayment}} <input type="text" placeholder="New monthly" ng-model="newMonthly" required> <br>
             </div>
             <div>
               <p>Notes : {{selectedLoan.notes}} || <input type="text" ng-model="newNotes" required placeholder="Add new notes here"> <br>
@@ -39,7 +39,7 @@
           <input placeholder="From Who" type="text" ng-model="loanFromWho" required>
           <input placeholder="Amount" type="number" ng-model="loanAmount" required><br>
           <input placeholder="Duration" type="text" ng-model="loanDuration" required>
-          <input placeholder="Intrest Rate" type="number" ng-model="loanIntrestRate" required><br>
+          <input placeholder="Intrest Rate" type="number" ng-model="loanInterestRate" required><br>
           <input placeholder="Monthly Payment" type="number" ng-model="loanMonthlyPayment" required><br>
           <input placeholder="Notes" type="text" ng-model="loanNotes" required><br>
           <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewLoan()" name="button" ng-disabled="newLoanForm.$invalid"> Save </button>

@@ -51,7 +51,7 @@ var newLoanToSend = {
   fromwho: $scope.loanFromWho,
   amount:$scope.loanAmount,
   duration:$scope.loanDuration,
-  intrestRate: $scope.loanIntrestRate,
+  interestrate: $scope.loanInterestrate,
   monthlyPay: $scope.loanMonthlyPayment,
   notes:$scope.loanNotes
 };//end object to send
@@ -70,12 +70,17 @@ var newLoanToSend = {
 
 $scope.saveEditChanges = function(){
 console.log('save Edit Changes');
-var updateToSend = {
-  
+
+var updatesToSend = {
+  rate: $scope.newRate,
+  duration: $scope.newDuration,
+  monthly: $scope.newMonthly,
+  notes: $scope.newNotes
 };
+  console.log(updatesToSend);
   $http({
     method: 'PUT',
-    url:'',
+    url:'/updateLoan',
     data: updatesToSend
   }).then(function(response){
     console.log(response,'edits have been saved for this loan');

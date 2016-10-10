@@ -44,13 +44,13 @@ console.log('object recived ', req.body);
 var fromWho = req.body.fromwho;
 var amount = req.body.amount;
 var duration = req.body.duration;
-var interestRate = req.body.intrestRate;
+var interestrate = req.body.interestrate;
 var monthlyPay = req.body.monthlyPay;
 var notes = req.body.notes;
 //need user_id here ************************************
 
   //console log each to double check
-    console.log(fromWho,amount,duration,intrestRate,monthlyPay,notes);
+    console.log(fromWho,amount,duration,interestrate,monthlyPay,notes);
 
 //connection to the data base
 pg.connect(connectionString, function(err,client,done){
@@ -59,7 +59,7 @@ pg.connect(connectionString, function(err,client,done){
   }else {
     console.log('Connected to DB');
     //insert new investment to the DB
-    client.query('INSERT INTO loans (fromwho,amount,duration,interestRate,monthlypayment, notes) VALUES($1, $2, $3, $4, $5, $6)', [fromWho , amount , duration , interestRate , monthlyPay, notes]);
+    client.query('INSERT INTO loans (fromwho,amount,duration,interestRate,monthlypayment, notes) VALUES($1, $2, $3, $4, $5, $6)', [fromWho , amount , duration , interestrate , monthlyPay, notes]);
     res.send({success: true});
   }//end else
 });//end pg connect

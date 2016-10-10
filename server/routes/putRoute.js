@@ -37,6 +37,11 @@ pg.connect(connectionString, function(err,client,done){
 router.put('/updateLoan', function(req,res){
   console.log('router dot put loan');
 
+  var rate = req.body.rate;
+  var duration = req.body.duration;
+  var monthly = req.body.monthly;
+  var notes = req.body.notes;
+console.log(rate,duration,monthly,notes);
 
 
 
