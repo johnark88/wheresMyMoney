@@ -14,7 +14,7 @@ clear: left;
 
 img{
 image-resolution: snap;
-width: 9em;
+width: 15em;
 }
 
 #quotesDisplay{
@@ -27,7 +27,7 @@ width: 9em;
 .flex-container {
     float: left;
     width: 150px;
-    height: 60px;
+    height: 105px;
     margin: 43px;
 }
 #listItem{

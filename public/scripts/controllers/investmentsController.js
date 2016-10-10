@@ -70,6 +70,8 @@ $http({
   $scope.invProfitLoss = "";
   $scope.invBought = "";
 });//end then function
+//reload page on click
+location.reload();
 };//end saveNewInv scope
 
 
@@ -96,6 +98,8 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.dateSold = "";
     $scope.selectedInv.investmentid = "";
   });//end then
+  //reload page on click
+  location.reload();
 };//end save changes to DB record
 
 $scope.DeleteInvest = function(){
@@ -115,6 +119,8 @@ console.log('delete delete  clientside : ', objectToDelete);
   }).then(function(response){
     console.log(response);
   });//end then for http
+  //reload page on click
+  location.reload();
 };//end delete function
 
 //get all investments on load

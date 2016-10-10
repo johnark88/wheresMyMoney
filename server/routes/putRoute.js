@@ -3,6 +3,7 @@ var path = require('path');
 var connectionString = 'postgress://localhost:5432/wmm';
 var pg = require('pg');
 
+//put route to investment table
 router.put('/updateInv', function(req,res){
   console.log('in router put ');
     //breaking up req dot body to use for db UPDATE
@@ -29,5 +30,16 @@ pg.connect(connectionString, function(err,client,done){
 });//end router dot put
 
 
+
+
+
+//put route to loans table
+router.put('/updateLoan', function(req,res){
+  console.log('router dot put loan');
+
+
+
+
+});//end router dot put loan changes
 
 module.exports = router;

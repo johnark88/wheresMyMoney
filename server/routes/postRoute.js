@@ -44,7 +44,7 @@ console.log('object recived ', req.body);
 var fromWho = req.body.fromwho;
 var amount = req.body.amount;
 var duration = req.body.duration;
-var intrestRate = req.body.intrestRate;
+var interestRate = req.body.intrestRate;
 var monthlyPay = req.body.monthlyPay;
 var notes = req.body.notes;
 //need user_id here ************************************
@@ -59,7 +59,7 @@ pg.connect(connectionString, function(err,client,done){
   }else {
     console.log('Connected to DB');
     //insert new investment to the DB
-    client.query('INSERT INTO loans (fromwho,amount,duration,intrestrate,monthlypayment, notes) VALUES($1, $2, $3, $4, $5, $6)', [fromWho , amount , duration , intrestRate , monthlyPay, notes]);
+    client.query('INSERT INTO loans (fromwho,amount,duration,interestRate,monthlypayment, notes) VALUES($1, $2, $3, $4, $5, $6)', [fromWho , amount , duration , interestRate , monthlyPay, notes]);
     res.send({success: true});
   }//end else
 });//end pg connect

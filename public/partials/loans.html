@@ -15,7 +15,7 @@
             <div>
               Amount : <input  type="text" value="{{selectedLoan.amount}}" required ng-readonly="true">
             </div>
-              Intrest Rate :  <input type="text" value="{{selectedLoan.intrestrate}}" required ng-readonly="true"><br>
+              Curent Intrest Rate : {{selectedLoan.interestRate}}  <input type="text" placeholder="New Interest Rate"><br>
               Duration : <input type="text" name="name" value="{{selectedLoan.duration}}" required ng-readonly="true"><br>
             <div>
              Monthly Payment : <input type="text" value="{{selectedLoan.monthlypayment}}" ng-readonly="true" required> <br>

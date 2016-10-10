@@ -29,6 +29,7 @@ $http({
   console.log(response.data,'loans from server');
   $scope.allLoans = response.data;
 });//end then from http
+};//end scope dot init
 
 //ng option select
 //on select show edit form
@@ -36,10 +37,6 @@ $scope.loan = function(selectedLoan){
   console.log($scope.selectedLoan);
     $scope.editLoanForm = false;
       $scope.newLoanForm = true;
-      //clear Inputs on new selection
-      // $scope.amtInv = "";
-      // $scope.profitLoss = "";
-      // $scope.dateSold = "";
 };//end scope.inv
 
 $scope.addNewLoan = function(){
@@ -66,10 +63,23 @@ var newLoanToSend = {
   }).then(function(response){
     console.log(response);
   });//end then on HTTP
+
+  //reload page on click
+  location.reload();
 };//save new loan to the DB
 
-
-
-};//end scope dot init
+$scope.saveEditChanges = function(){
+console.log('save Edit Changes');
+var updateToSend = {
+  
+};
+  $http({
+    method: 'PUT',
+    url:'',
+    data: updatesToSend
+  }).then(function(response){
+    console.log(response,'edits have been saved for this loan');
+  });//end http then
+};//end save edit changes loans
 $scope.init();
 }]);
