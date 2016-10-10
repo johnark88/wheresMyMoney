@@ -10,9 +10,7 @@ router.use(bodyParser.urlencoded());
 
 router.post('/deleteInv',urlencodedParser,function(req,res){
 console.log('req dot body check  ',  req.body);
-// var newAmtInv = req.body.amountinvested;
-// var profitLoss = req.body.profitLoss;
-// var dateSold = req.body.dateSold;
+
 var investmentid = req.body.invId;
 var selected = req.body.item;
 
