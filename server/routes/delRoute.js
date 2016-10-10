@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded());
+
 
 router.post('/deleteInv',urlencodedParser,function(req,res){
 console.log('req dot body check  ',  req.body);
