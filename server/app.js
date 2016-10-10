@@ -14,6 +14,10 @@ app.listen(portDecision, function(){
   console.log('Im listening on ', portDecision);
 });
 
+//Delete Route
+var delRoute =require('./routes/delRoute');
+app.use('/', delRoute);
+
 //index route
 var index = require('./routes/index');
 
@@ -28,10 +32,6 @@ app.use('/', postRoute);
 //put Route
 var putRoute = require('./routes/putRoute');
 app.use('/', putRoute);
-
-//Delete Route
-var delRoute =require('./routes/delRoute');
-app.use('/', delRoute);
 
 //use public folder
 app.use(express.static('public'));

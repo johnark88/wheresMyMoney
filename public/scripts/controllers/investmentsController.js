@@ -71,7 +71,7 @@ $http({
   $scope.invBought = "";
 });//end then function
 //reload page on click
-location.reload();
+// location.reload();
 };//end saveNewInv scope
 
 
@@ -99,28 +99,27 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
   //reload page on click
-  location.reload();
+  // location.reload();
 };//end save changes to DB record
 
-$scope.DeleteInvest = function(){
+$scope.deleteInvest = function(){
 
 var objectToDelete = {
-  amountinvested: $scope.amtInv,
-  profitLoss: $scope.profitLoss,
-  dateSold: $scope.dateSold,
+  item: $scope.selectedInv,
   invId: $scope.selectedInv.investmentid
 };//end object to send
+
 console.log('delete delete  clientside : ', objectToDelete);
 
   $http({
-    method: 'DELETE',
+    method: 'POST',
     url:'/deleteInv',
     data: objectToDelete
   }).then(function(response){
     console.log(response);
   });//end then for http
   //reload page on click
-  location.reload();
+  // location.reload();
 };//end delete function
 
 //get all investments on load

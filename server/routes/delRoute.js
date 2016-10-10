@@ -3,18 +3,20 @@ var path = require('path');
 var connectionString = 'postgress://localhost:5432/wmm';
 var pg = require('pg');
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({extended: true});
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+
 router.use(bodyParser.json());
+router.use(bodyParser.urlencoded());
 
-
-router.delete('/deleteInv',urlencodedParser,function(req,res){
+router.post('/deleteInv',urlencodedParser,function(req,res){
 console.log('req dot body check  ',  req.body);
-var newAmtInv = req.body.amountinvested;
-var profitLoss = req.body.profitLoss;
-var dateSold = req.body.dateSold;
+// var newAmtInv = req.body.amountinvested;
+// var profitLoss = req.body.profitLoss;
+// var dateSold = req.body.dateSold;
 var investmentid = req.body.invId;
+var selected = req.body.item;
 
-console.log('serverSide ', newAmtInv, profitLoss, dateSold, investmentid);
+console.log('serverSide ', selected, investmentid);
 
   pg.connect(connectionString, function(err,client,done){
     if (err) {
@@ -25,7 +27,6 @@ console.log('serverSide ', newAmtInv, profitLoss, dateSold, investmentid);
       // client.query('INSERT INTO investmentsArchive SELECT investmentid, user_id, bank, stocksymbol, amountInvested, profitLoss, purchaseDate, soldDate FROM investments	WHERE investmentID = ($1)',[investmentid]);
       client.query('DELETE FROM investments WHERE investmentID = ($1)', [investmentid]);
       res.send({success: true});
-
     }//end else
   });//end pg connect
   });//end router dot put

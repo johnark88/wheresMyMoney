@@ -31,8 +31,6 @@ pg.connect(connectionString, function(err,client,done){
 
 
 
-
-
 //put route to loans table
 router.put('/updateLoan', function(req,res){
   console.log('router dot put loan');
@@ -41,10 +39,21 @@ router.put('/updateLoan', function(req,res){
   var duration = req.body.duration;
   var monthly = req.body.monthly;
   var notes = req.body.notes;
-console.log(rate,duration,monthly,notes);
+  var id = req.body.loanid;
+console.log(rate,duration,monthly,notes,id);
 
-
-
+pg.connect(connectionString, function(err,client,done ){
+  if (err) {
+    console.log(err);
+  }else {
+    console.log('DB Connected ');
+    //send updates to loan tabl in db
+    client.query('UPDATE loans SET duration = $1 , interestrate = $2 , monthlypayment = $3, notes = $4 WHERE loanid = $5', [duration,rate,monthly,notes, id]);
+    res.send({sucess: true});
+  }//end else
+});//end pg connect
 });//end router dot put loan changes
+
+
 
 module.exports = router;

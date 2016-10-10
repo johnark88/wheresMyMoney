@@ -75,7 +75,8 @@ var updatesToSend = {
   rate: $scope.newRate,
   duration: $scope.newDuration,
   monthly: $scope.newMonthly,
-  notes: $scope.newNotes
+  notes: $scope.newNotes,
+  loanid: $scope.selectedLoan.loanid
 };
   console.log(updatesToSend);
   $http({
