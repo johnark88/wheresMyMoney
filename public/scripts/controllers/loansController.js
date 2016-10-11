@@ -12,23 +12,33 @@ myApp.controller('loansController', ['$scope','$http', function($scope, $http){
 
 //declare all loans var global
 var allLoans;
+var allLoanPayments;
 
 //hide all forms on page load
 $scope.editLoanForm = true;
 $scope.newLoanForm = true;
 
 $scope.init = function(){
-console.log('loans init');
-  //make it an array
-  $scope.allLoans = [];
+  console.log('loans init');
+    //make it an array
+      $scope.allLoans = [];
 //get all loans from server
-$http({
-  method: 'GET',
-  url:'/loans'
-}).then(function(response){
-  console.log(response.data,'loans from server');
-  $scope.allLoans = response.data;
-});//end then from http
+  $http({
+    method: 'GET',
+    url:'/loans'
+  }).then(function(response){
+    console.log(response.data,'loans from server');
+    $scope.allLoans = response.data;
+  });//end then from http
+
+        //get loan payments
+        $http({
+          method: 'GET',
+          url:'/loanpayments'
+        }).then(function(response){
+            $scope.allLoanPayments = response.data;
+                console.log($scope.allLoanPayments);
+        });
 };//end scope dot init
 
 //ng option select
@@ -86,6 +96,7 @@ var updatesToSend = {
   }).then(function(response){
     console.log(response,'edits have been saved for this loan');
   });//end http then
+    location.reload();
 };//end save edit changes loans
 
   $scope.makePayments = function(){
@@ -103,6 +114,7 @@ var updatesToSend = {
     }).then(function(response){
       console.log(response);
     });//end then
+      location.reload();
   };//end make payments
 
 $scope.init();
