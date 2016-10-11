@@ -1,12 +1,10 @@
 <link rel="stylesheet" href="/styles/homeStyleSheet.css" media="screen" title="no title">
-  <p>
-    Where's my money?
-  </p>
+
 
   <div id="quotesDisplay" ng-repeat="stocks in stockQuotes track by $index">
         {{stocks.symbol}}
-        {{stocks.price}}
-        {{stocks.change}}
+        {{stocks.Ask}}
+        {{stocks.Change}}
   </div>
 
   <div class="Totals">

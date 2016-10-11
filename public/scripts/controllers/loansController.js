@@ -87,5 +87,23 @@ var updatesToSend = {
     console.log(response,'edits have been saved for this loan');
   });//end http then
 };//end save edit changes loans
+
+  $scope.makePayments = function(){
+    console.log('making payments');
+    var paymentDataToSend = {
+      date:$scope.paymentDate,
+      amount: $scope.paymentAmt,
+      loanid: $scope.selectedLoan.loanid
+    };//end object to send
+
+    $http({
+      method: 'POST',
+      url: '/savePayment',
+      data: paymentDataToSend
+    }).then(function(response){
+      console.log(response);
+    });//end then
+  };//end make payments
+
 $scope.init();
 }]);

@@ -3,6 +3,7 @@ var path = require('path');
 var connectionString = 'postgress://localhost:5432/wmm';
 var pg = require('pg');
 
+//save new investment
 router.post('/newInv', function(req,res){
 console.log('post new route');
 console.log('object recived ', req.body);
@@ -35,7 +36,7 @@ pg.connect(connectionString, function(err,client,done){
 });//end router post new investment
 
 
-
+//save new loan
 router.post('/saveNewLoan', function(req,res){
 console.log('post new Loan route');
 console.log('object recived ', req.body);
@@ -65,6 +66,31 @@ pg.connect(connectionString, function(err,client,done){
 });//end pg connect
 });//end router post new investment
 
+
+//save payment on loan
+router.post('/savePayment',function(req,res){
+  console.log('save payment on loan route');
+  console.log(req.body);
+
+  var date = req.body.date;
+  var amount = req.body.amount;
+  var id = req.body.loanid;
+
+  //breaks of the time stamp leaving only the date
+  var newDate = date.split("T").shift();
+  console.log(newDate,'split shift that string');
+
+  pg.connect(connectionString, function(err,client,done){
+    if (err) {
+      console.log(err);
+    }else {
+      console.log('db connected true');
+      //save new payment to db
+      client.query('INSERT INTO loanpayments (loanid,paymentdate,paymentamount) VALUES ($1, $2, $3)',[id,newDate,amount]);
+      res.send({success: true});
+    }
+  });
+});
 
 
 
