@@ -30,7 +30,8 @@ $scope.init = function(){
             url:'/loanpayments'
             }).then(function(response){
               $scope.allLoanPayments = response.data;
-                console.log($scope.allLoanPayments);
+                // console.log($scope.allLoanPayments);
+                console.log($scope.allLoanPayments.paymentdate);
               });
             };//end scope dot init
 
@@ -41,13 +42,18 @@ $scope.init = function(){
       $scope.editLoanForm = false;
         $scope.newLoanForm = true;
           $scope.loanPayments = false;
+          // if (loanid has loan payments  ) {
+          //     load loanPayments display
+          // }else {
+          //   hide tit
+          // }
   };//end scope.inv
 
   $scope.addNewLoan = function(){
     $scope.newLoanForm = false;
-    $scope.editLoanForm = true;
-    $scope.loanPayments = true;
-    $scope.selectedLoan = "";
+      $scope.editLoanForm = true;
+        $scope.loanPayments = true;
+            $scope.selectedLoan = "";
   };//end addNew scope
 
 $scope.saveNewLoan = function(){
@@ -55,11 +61,11 @@ $scope.saveNewLoan = function(){
 
     var newLoanToSend = {
       fromwho: $scope.loanFromWho,
-      amount:$scope.loanAmount,
-      duration:$scope.loanDuration,
+        amount:$scope.loanAmount,
+          duration:$scope.loanDuration,
       interestrate: $scope.loanInterestrate,
-      monthlyPay: $scope.loanMonthlyPayment,
-      notes:$scope.loanNotes
+        monthlyPay: $scope.loanMonthlyPayment,
+          notes:$scope.loanNotes
     };//end object to send
 
         $http({
@@ -100,8 +106,8 @@ console.log('save Edit Changes');
 
       var paymentDataToSend = {
         date:$scope.paymentDate,
-        amount: $scope.paymentAmt,
-        loanid: $scope.selectedLoan.loanid
+          amount: $scope.paymentAmt,
+            loanid: $scope.selectedLoan.loanid
       };//end object to send
 
           $http({

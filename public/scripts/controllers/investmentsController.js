@@ -106,7 +106,9 @@ console.log(editsToSend, 'EDITS EDITS ');
 $scope.deleteInvest = function(){
 
 var objectToDelete = {
-  item: $scope.selectedInv,
+  amountinvested: $scope.amtInv,
+  profitLoss: $scope.profitLoss,
+  dateSold: $scope.dateSold,
   invId: $scope.selectedInv.investmentid
 };//end object to send
 
