@@ -41,6 +41,7 @@ $scope.inv = function(selectedInv){
 $scope.addNew = function(){
   $scope.addNewForm = false;
   $scope.editForm = true;
+  $scope.selectedInv = "";
 };//end addNew scope
 
 //save new Investment
