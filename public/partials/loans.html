@@ -7,7 +7,7 @@
   </div>
 
 
-
+<!-- edit loan form -->
   <div class="editcontainer" ng-hide="editLoanForm">
       <form name="editLoanForm" novalidate id="editLoanForm">
         <div ng-model="selectedLoan" >
@@ -33,6 +33,16 @@
   </div>
 
 
+    <!-- loan payments display -->
+    <div id="loanPayments" ng-hide="loanPayments">
+      <div ng-repeat="loan in allLoanPayments">
+         Payments Made:
+        <p>Amount: {{loan.paymentamount}} Date: {{loan.paymentdate}}</p>
+      </div>
+    </div>
+
+
+<!-- new loan form  -->
   <div class="newLoan" ng-hide="newLoanForm">
     <form name="newLoanForm" novalidate id="newLoanForm">
       <div ng-model="selectedLoan" >

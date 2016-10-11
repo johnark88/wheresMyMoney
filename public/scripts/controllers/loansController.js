@@ -17,6 +17,7 @@ var allLoanPayments;
 //hide all forms on page load
 $scope.editLoanForm = true;
 $scope.newLoanForm = true;
+$scope.loanPayments = true;
 
 $scope.init = function(){
   console.log('loans init');
@@ -47,11 +48,14 @@ $scope.loan = function(selectedLoan){
   console.log($scope.selectedLoan);
     $scope.editLoanForm = false;
       $scope.newLoanForm = true;
+        $scope.loanPayments = false;
 };//end scope.inv
 
 $scope.addNewLoan = function(){
   $scope.newLoanForm = false;
   $scope.editLoanForm = true;
+  $scope.loanPayments = true;
+  $scope.selectedLoan = "";
 };//end addNew scope
 
 $scope.saveNewLoan = function(){
