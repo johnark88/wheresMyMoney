@@ -3,7 +3,7 @@
     Where's my money?
   </p>
 
-  <div id="quotesDisplay" ng-repeat="stocks in stockQuotes">
+  <div id="quotesDisplay" ng-repeat="stocks in stockQuotes track by $index">
         {{stocks.symbol}}
         {{stocks.price}}
         {{stocks.change}}
