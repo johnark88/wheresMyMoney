@@ -9,6 +9,7 @@ var allLoanPayments;
 $scope.editLoanForm = true;
 $scope.newLoanForm = true;
 $scope.loanPayments = true;
+$scope.currentLoanForm = true;
 
 $scope.init = function(){
   console.log('loans init');
@@ -39,9 +40,8 @@ $scope.init = function(){
   //on select show edit form
   $scope.loan = function(selectedLoan){
     console.log($scope.selectedLoan);
-      $scope.editLoanForm = false;
         $scope.newLoanForm = true;
-          $scope.loanPayments = false;
+            $scope.currentLoanForm = false;
           // if (loanid has loan payments  ) {
           //     load loanPayments display
           // }else {
@@ -53,6 +53,7 @@ $scope.init = function(){
     $scope.newLoanForm = false;
       $scope.editLoanForm = true;
         $scope.loanPayments = true;
+          $scope.currentLoanForm =true;
             $scope.selectedLoan = "";
   };//end addNew scope
 
@@ -79,6 +80,17 @@ $scope.saveNewLoan = function(){
         //reload page on click
         location.reload();
 };//save new loan to the DB
+
+$scope.editLoan = function(){
+  $scope.editLoanForm = false;
+  $scope.loanPayments = true;
+};//end show edit form
+
+$scope.showPayments = function(){
+  $scope.loanPayments = false;
+};//end show add payments and payments log
+
+
 
 $scope.saveEditChanges = function(){
 console.log('save Edit Changes');

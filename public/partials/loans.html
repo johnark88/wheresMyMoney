@@ -1,28 +1,38 @@
 <link rel="stylesheet" href="/styles/loanstylesheet.css" media="screen" title="no title">
 
-
+<!-- drop down and add new button -->
   <div class="selectLoan">
     <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> Add new loan </button>
     <select ng-change="loan(selectedLoan)" ng-model="selectedLoan" ng-options="loan as loan.fromwho for loan in allLoans"></select>
   </div>
 
+  <!-- display current Loan non editable  -->
+<div class="currentLoan" ng-hide="currentLoanForm">
+  <form name="currentLoanFrom" novalidate id="currentLoanForm">
+    <div ng-model="selectedLoan" >
+          <span>From: {{selectedLoan.fromwho}} </span> ||
+          <span>Amount: {{selectedLoan.amount}}</span> ||
+          <span>Curent Interest Rate : {{selectedLoan.interestrate}}</span> ||
+          <span>Current Duration : {{selectedLoan.duration}} </span> ||
+          <span>Current Monthly Payment : {{selectedLoan.monthlypayment}}</span> ||
+          <span>Notes : {{selectedLoan.notes}}</span>
+          <div>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="editLoan()"name="button"> Edit this loan </button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="showPayments()"name="button"> Payments </button>
+        </div>
+        </div>
+  </form>
+
+</div>
 
 <!-- edit loan form -->
   <div class="editcontainer" ng-hide="editLoanForm">
       <form name="editLoanForm" novalidate id="editLoanForm">
-        <div ng-model="selectedLoan" >
-              From :  <input type="text" value="{{selectedLoan.fromwho}}"required ng-readonly="true">
-            <div>
-              Amount : <input  type="text" value="{{selectedLoan.amount}}" required ng-readonly="true">
-            </div>
-              Curent Interest Rate : {{selectedLoan.interestrate}}  <input type="text" placeholder="New Interest Rate" ng-model="newRate"><br>
-              Current Duration : {{selectedLoan.duration}} <input type="text" name="name" placeholder="New Duration" required ng-model="newDuration"><br>
-            <div>
-              Current Monthly Payment : {{selectedLoan.monthlypayment}} <input type="text" placeholder="New monthly" ng-model="newMonthly" required> <br>
-            </div>
-            <div>
-              <p>Notes : {{selectedLoan.notes}} || <input type="text" ng-model="newNotes" required placeholder="Add new notes here"> <br>
-            </div>
+        <div ng-model="selectedLoan">
+              <input type="text" placeholder="New Interest Rate" ng-model="newRate"><br>
+              <input type="text" name="name" placeholder="New Duration" required ng-model="newDuration"><br>
+              <input type="text" placeholder="New monthly" ng-model="newMonthly" required> <br>
+              <input type="text" ng-model="newNotes" required placeholder="Add new notes here"> <br>
               <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editLoanForm.$invalid"> Save Changes</button>
               <p>Log in a payment - </p>
               <input placeholder="Payment Amount" type="number" name="name" ng-model="paymentAmt" required="">
