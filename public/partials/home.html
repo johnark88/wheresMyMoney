@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="/styles/homeStyleSheet.css" media="screen" title="no title">
 
+<div class="marquee">
+  <span>
+<span ng-repeat="stocks in stockQuotes track by $index">{{stocks.Symbol}} {{stocks.Ask}} {{stocks.Change}} ** </span>
+  </span>
+</div>
 
-  <div id="quotesDisplay" ng-repeat="stocks in stockQuotes track by $index">
-        {{stocks.Symbol}}
-        {{stocks.Ask}}
-        {{stocks.Change}}
-  </div>
+
 
   <div class="Totals">
     <p>Total Invested : {{}}</p>
