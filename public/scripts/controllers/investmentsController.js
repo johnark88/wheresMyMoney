@@ -7,6 +7,7 @@ var allInvestments;
 //hide all forms on page load
 $scope.addNewForm = true;
 $scope.editForm = true;
+$scope.currentInv = true;
 
 //Getting all investments
 $scope.init = function() {
@@ -30,6 +31,7 @@ $scope.inv = function(selectedInv){
   console.log($scope.selectedInv);
     $scope.editForm = false;
       $scope.addNewForm = true;
+        $scope.currentInv = false;
       //clear Inputs on new selection
       $scope.amtInv = "";
       $scope.profitLoss = "";
@@ -40,8 +42,9 @@ $scope.inv = function(selectedInv){
 //allow edit of all fields
 $scope.addNew = function(){
   $scope.addNewForm = false;
-  $scope.editForm = true;
-  $scope.selectedInv = "";
+    $scope.editForm = true;
+      $scope.currentInv = true;
+        $scope.selectedInv = "";
 };//end addNew scope
 
 //save new Investment
@@ -72,7 +75,7 @@ $http({
   $scope.invBought = "";
 });//end then function
 //reload page on click
-location.refresh();
+location.reload();
 };//end saveNewInv scope
 
 
@@ -100,7 +103,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
   //reload page on click
-  location.refresh();
+  location.reload();
 };//end save changes to DB record
 
 $scope.deleteInvest = function(){
@@ -122,7 +125,7 @@ console.log('delete delete  clientside : ', objectToDelete);
     console.log(response);
   });//end then for http
   //reload page on click
-  location.refresh();
+  location.reload();
 };//end delete function
 
 //get all investments on load

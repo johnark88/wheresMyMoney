@@ -1,15 +1,46 @@
 .addNew{
-margin: 50px;
+  text-align: center;
+  margin-top: 30px;
 }
+
 .select{
-margin: 50px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+/*seletion from drop down*/
+#currentForm{
+  text-align: center;
+  display: inline;
+}
+
+/******************************************************************/
+/*new form container*/
 .container{
   text-align: center;
   margin: 30px;
 }
 
+/*add new form inside container*/
+#addNewForm{
+text-align: center;
+}
+
+
+/******************************************************************/
+/*edit form container*/
 .editContainer{
   text-align: center;
   margin: 30px;
+}
+
+/* edit form inside container*/
+#editInvForm{
+  text-align: center;
+}
+
+/*input boxes in all forms*/
+input{
+  text-align: center;
 }

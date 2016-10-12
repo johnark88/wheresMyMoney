@@ -2,26 +2,33 @@
   <div class="addNew">
     <button class="btn btn-sm btn-primary" ng-click="addNew()" type="button" name="button"> Add new Investment</button>
   </div>
+
+  <!-- Drop down of current Investments   -->
   <div class="select">
-    <!-- <button class="btn btn-sm btn-primary" ng-click="getInvest()" type="button" name="button"> Get Investments </button> -->
     <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol for inv in allInvestments"></select>
   </div>
+
+<!-- shows non editable info of selection from drop down  -->
+<div class="currentInv" ng-hide="currentInv">
+  <form name="currentInv" novalidate id="currentForm">
+    <div ng-model="selectedInv" >
+          <span> Bank: {{selectedInv.bank}} </span> ||
+          <span> Currently Invested: {{selectedInv.amountinvested}} </span> ||
+          <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> ||
+          <span>Current P/L: {{selectedInv.profitloss}}</span> ||
+          <span>Sold: {{selectedInv.solddate}} </p>
+    </div>
+  </form>
+</div>
+
 
 <!-- Edit Form  -->
 <div class="editContainer" ng-hide="editForm">
   <form name="editInvForm" novalidate id="editInvForm">
     <div ng-model="selectedInv" >
-          Bank:  <input type="text" value="{{selectedInv.bank}}"required ng-readonly="true">
-        <div>
-          Currently Invested: {{selectedInv.amountinvested}} || <input placeholder="New Amount" ng-model="amtInv" type="number" value="">
-        </div>
-          Stock Symbol:  <input type="text" value="{{selectedInv.stocksymbol}}" required ng-readonly="true"><br>
-        <div>
-            Current P/L: {{selectedInv.profitloss}} || <input placeholder="Profit/Loss" ng-model="profitLoss"type="number"  required> <br>
-        </div>
-        <div>
-          <p>Sold Yet? {{selectedInv.solddate}} || Date Sold:   <input type="date" ng-model="dateSold"> <br>
-        </div>
+          <input placeholder="New Amount" ng-model="amtInv" type="number" value="">
+          <input placeholder="Profit/Loss" ng-model="profitLoss"type="number"  required> <br>
+          Sold on:<input type="date" ng-model="dateSold"> <br>
           <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid"> Save Changes</button>
           <button type="button" class="btn btn-sm btn-primary" ng-click="deleteInvest()" name="button"> Delete Investment</button>
     </div>
