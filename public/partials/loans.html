@@ -27,17 +27,13 @@
 
 <!-- edit loan form -->
   <div class="editcontainer" ng-hide="editLoanForm">
-      <form name="editLoanForm" novalidate id="editLoanForm">
+      <form name="editLoanForm1" novalidate id="editLoanForm">
         <div ng-model="selectedLoan">
               <input type="text" placeholder="New Interest Rate" ng-model="newRate"><br>
               <input type="text" name="name" placeholder="New Duration" required ng-model="newDuration"><br>
               <input type="text" placeholder="New monthly" ng-model="newMonthly" required> <br>
               <input type="text" ng-model="newNotes" required placeholder="Add new notes here"> <br>
-              <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editLoanForm.$invalid"> Save Changes</button>
-              <p>Log in a payment - </p>
-              <input placeholder="Payment Amount" type="number" name="name" ng-model="paymentAmt" required="">
-              <input type="date" name="name" ng-model="paymentDate" required="">
-              <button type="button" class="btn btn-sm btn-primary" ng-click="makePayments()" name="button"> Save Payment </button>
+              <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editLoanForm1.$invalid"> Save Changes</button>
         </div>
       </form>
   </div>
@@ -45,16 +41,23 @@
 
     <!-- loan payments display -->
     <div id="loanPayments" ng-hide="loanPayments">
-      <div ng-repeat="loan in allLoanPayments">
+
+        <p>Log in a payment - </p>
+        <input placeholder="Payment Amount" type="number" name="name" ng-model="paymentAmt" required="">
+        <input type="date" name="name" ng-model="paymentDate" required="">
+        <button type="button" class="btn btn-sm btn-primary" ng-click="makePayments()" name="button"> Save Payment </button>
          Payments Made:
-        <p>Amount: {{loan.paymentamount}} Date: {{loan.paymentdate}}</p>
+         <div ng-model="selectedLoan">
+        <div ng-repeat="loan in allLoanPayments">
+          <p>Amount: {{loan.paymentamount}} Date: {{loan.paymentdate}}</p>
       </div>
+    </div>
     </div>
 
 
 <!-- new loan form  -->
   <div class="newLoan" ng-hide="newLoanForm">
-    <form name="newLoanForm" novalidate id="newLoanForm">
+    <form name="newLoanForm1" novalidate id="newLoanForm">
       <div ng-model="selectedLoan" >
           <input placeholder="From Who" type="text" ng-model="loanFromWho" required>
           <input placeholder="Amount" type="number" ng-model="loanAmount" required><br>
@@ -62,7 +65,7 @@
           <input placeholder="Intrest Rate" type="number" ng-model="loanInterestRate" required><br>
           <input placeholder="Monthly Payment" type="number" ng-model="loanMonthlyPayment" required><br>
           <input placeholder="Notes" type="text" ng-model="loanNotes" required><br>
-          <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewLoan()" name="button" ng-disabled="newLoanForm.$invalid"> Save </button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewLoan()" name="button" ng-disabled="newLoanForm1.$invalid"> Save </button>
       </div>
     </form>
   </div>

@@ -32,6 +32,7 @@ $scope.inv = function(selectedInv){
     $scope.editForm = false;
       $scope.addNewForm = true;
         $scope.currentInv = false;
+
       //clear Inputs on new selection
       $scope.amtInv = "";
       $scope.profitLoss = "";
@@ -63,10 +64,11 @@ console.log(newInv,'ObjectToSend');
 
 $http({
     method:'POST',
-    url: '/newInv',
-    data: newInv
+      url: '/newInv',
+        data: newInv
   }).then(function(response){
-  console.log(response);
+    console.log(response);
+
   //clear input fields
   $scope.invBank = "";
   $scope.invAmountInvested = "";
@@ -75,7 +77,7 @@ $http({
   $scope.invBought = "";
 });//end then function
 //reload page on click
-location.reload();
+// location.reload();
 };//end saveNewInv scope
 
 
@@ -92,10 +94,11 @@ console.log(editsToSend, 'EDITS EDITS ');
 
   $http({
     method: 'PUT',
-    url: '/updateInv',
-    data: editsToSend
+      url: '/updateInv',
+        data: editsToSend
   }).then(function(response){
     console.log(response);
+
     //clear input fields
     $scope.amtInv = "";
     $scope.profitLoss = "";
@@ -103,7 +106,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
   //reload page on click
-  location.reload();
+  // location.reload();
 };//end save changes to DB record
 
 $scope.deleteInvest = function(){
@@ -119,13 +122,13 @@ console.log('delete delete  clientside : ', objectToDelete);
 
   $http({
     method: 'POST',
-    url:'/deleteInv',
-    data: objectToDelete
+      url:'/deleteInv',
+        data: objectToDelete
   }).then(function(response){
     console.log(response);
   });//end then for http
   //reload page on click
-  location.reload();
+  // location.reload();
 };//end delete function
 
 //get all investments on load

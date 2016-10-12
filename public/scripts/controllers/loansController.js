@@ -31,8 +31,7 @@ $scope.init = function(){
             url:'/loanpayments'
             }).then(function(response){
               $scope.allLoanPayments = response.data;
-                // console.log($scope.allLoanPayments);
-                console.log($scope.allLoanPayments.paymentdate);
+                console.log($scope.allLoanPayments,'payments from server');
               });
             };//end scope dot init
 
@@ -78,7 +77,7 @@ $scope.saveNewLoan = function(){
               });//end then on HTTP
 
         //reload page on click
-        location.reload();
+        // location.reload();
 };//save new loan to the DB
 
 $scope.editLoan = function(){
@@ -110,7 +109,7 @@ console.log('save Edit Changes');
                   }).then(function(response){
                     console.log(response,'edits have been saved for this loan');
                   });//end http then
-            location.reload();
+            // location.reload();
 };//end save edit changes loans
 
   $scope.makePayments = function(){
@@ -129,7 +128,7 @@ console.log('save Edit Changes');
                 }).then(function(response){
                   console.log(response);
                 });//end then
-            location.reload();
+            // location.reload();
         };//end make payments
 
 $scope.init();

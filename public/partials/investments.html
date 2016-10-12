@@ -28,7 +28,7 @@
 <div class="editContainer" ng-hide="editForm">
   <form name="editInvForm" novalidate id="editInvForm">
     <div ng-model="selectedInv" >
-          <input placeholder="New Amount" ng-model="amtInv" type="number" value="">
+          <input placeholder="New Amount" ng-model="amtInv" type="number" value="" required>
           <input placeholder="Profit/Loss" ng-model="profitLoss"type="number"  required> <br>
           Sold on:<input type="date" ng-model="dateSold"> <br>
           <button type="button" class="btn btn-sm btn-primary" ng-click="saveEditChanges()" name="button" ng-disabled="editInvForm.$invalid"> Save Changes</button>
@@ -40,14 +40,14 @@
 
 <!-- Add New Form  -->
 <div class="container" ng-hide="addNewForm">
-  <form name="addNewForm" novalidate id="addNewForm">
+  <form name="addNewInvForm" novalidate id="addNewInvForm">
     <div ng-model="selectedInv" >
         <input placeholder="Bank" type="text" ng-model="invBank" required>
         <input placeholder="Amount Invested" type="number" ng-model="invAmountInvested" required><br>
         <input placeholder="Stock Symbol" type="text" ng-model="invStockSymbol" required>
         <input placeholder="Profit/Loss" type="number" ng-model="invProfitLoss" required><br>
         <input placeholder="Date Bought" type="date" ng-model="invBought" required><br>
-        <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button" ng-disabled="addNewForm.$invalid"> Save </button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="saveNewInv()" name="button" ng-disabled="addNewInvForm.$invalid"> Save </button>
     </div>
 
   </form>
