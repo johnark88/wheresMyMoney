@@ -78,18 +78,4 @@ router.get('/loanpayments', function(req,res){
   });//end pg connect
 });//end router get loan payments
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;

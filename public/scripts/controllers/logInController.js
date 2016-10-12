@@ -33,8 +33,8 @@ $scope.logOut = function(){
     url: logOutUrl
   }).then(function(response){
     console.log( 'http response:', response );
-    // if(response.data == 'OK')
-    // emptyLocalStorage();
+    if(response.data == 'OK')
+    emptyLocalStorage();
   });
 };//end log out
 $scope.init();

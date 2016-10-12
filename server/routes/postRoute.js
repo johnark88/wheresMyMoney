@@ -92,6 +92,4 @@ router.post('/savePayment',function(req,res){
   });
 });
 
-
-
 module.exports = router;

@@ -54,6 +54,4 @@ pg.connect(connectionString, function(err,client,done ){
 });//end pg connect
 });//end router dot put loan changes
 
-
-
 module.exports = router;
