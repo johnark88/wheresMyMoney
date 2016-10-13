@@ -14,8 +14,10 @@
     <p>Total you owe : {{}}
   </div>
 
-  <p> Checkout todays headlines from The Wall Street Journal: </p>
-
+  <div class="select">
+    <span id="newsLine"> Select your news source </span>
+    <select ng-change="source(selectedSource)" ng-model="selectedSource" ng-options="source as source.name for source in allSources"></select>
+  </div>
 
   <ul id="newsDisplay" class="flex-container"  ng-repeat="news in newsArticles">
     <li><img id="img" src="{{news.urlToImage}}" alt="" class="expand" /></li>

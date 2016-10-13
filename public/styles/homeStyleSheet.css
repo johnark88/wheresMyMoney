@@ -17,6 +17,9 @@ image-resolution: snap;
 width: 15em;
 }
 
+.select{
+  text-align: center;
+}
 
 .flex-container {
     float: left;
@@ -30,7 +33,7 @@ width: 15em;
 
 /* Make it a marquee */
 .marquee {
-    width: 450px;
+    width: 100%;
     margin: 0 auto;
     white-space: nowrap;
     overflow: hidden;
@@ -42,7 +45,7 @@ width: 15em;
     display: inline-block;
     padding-left: 50%;
     text-indent: 0;
-    animation: marquee 25s linear infinite;
+    animation: marquee 45s linear infinite;
 }
 .marquee > span:hover {
     animation-play-state: paused
