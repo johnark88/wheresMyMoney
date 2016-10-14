@@ -13,7 +13,7 @@ router.get('/investments', function(req,res){
       var resultsArray = [];
       //get all investments from DB
       var queryResults = client.query('SELECT * FROM investments');
-
+      
       //push all results to array , send array to client
     queryResults.on('row', function(row){
         resultsArray.push(row);

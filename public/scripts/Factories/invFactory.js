@@ -1,22 +1,21 @@
-myApp.factory('invFactory','$http' , function($http){
+myApp.factory('invFactory', function($http){
   console.log('in factory ');
 
+  var allInvestments = function(){
 
-var allInvestments = [];
-
-
-
-  $http({
-    method: 'GET',
-    url: '/investments'
+      $http({
+        method: 'GET',
+        url: '/investments'
       }).then(function(response){
-        $scope.allInvestments = response.data;
-});//end then
+        console.log(response.data,'datatatatatatatatatatat');
+        allInvestments = response.data;
+        console.log(allInvestments, 'kajsdajsdkjhaksjdhakjshdkajshdkajhsda');
+      });//end then
 
+      return {
+        getArray: allInvestments
+      };
+  };
 
-
-return allInvestments;
-
-
-
+  return allInvestments();
 }); //end myApp factory

@@ -1,28 +1,21 @@
-myApp.controller('investmentsController',['$scope', '$http', 'invFactory',function($scope,$http,invFactory){
+myApp.controller('investmentsController',['invFactory','$scope', '$http',function(invFactory, $scope,$http){
   console.log('investmentsController');
-
-//declare allInvestments var global
-var allInvestments;
 
 //hide all forms on page load
 $scope.addNewForm = true;
 $scope.editForm = true;
 $scope.currentInv = true;
 
-
-console.log(invFactory);
-$scope.allInvestments = invFactory;
-console.log($scope.allInvestments,'WORK@!');
-
+var allInvestments;
 
 //Getting all investments
 $scope.init = function() {
   console.log('in get invest');
 
-  //   //declare global var as array
-  //   $scope.allInvestments = [];
-  //
-  //   
+
+  console.log(invFactory);
+  $scope.allInvestments = invFactory.getArray();
+  console.log($scope.allInvestments,'WORK@!');
 };//end get.invest
 
 //ng option select
