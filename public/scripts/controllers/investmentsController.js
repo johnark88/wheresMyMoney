@@ -9,20 +9,20 @@ $scope.addNewForm = true;
 $scope.editForm = true;
 $scope.currentInv = true;
 
+
+console.log(invFactory);
+$scope.allInvestments = invFactory;
+console.log($scope.allInvestments,'WORK@!');
+
+
 //Getting all investments
 $scope.init = function() {
   console.log('in get invest');
-  console.log();
-    //declare global var as array
-    $scope.allInvestments = [];
 
-    //http call to get investments
-    $http({
-      method: 'GET',
-      url: '/investments'
-        }).then(function(response){
-          $scope.allInvestments = response.data;
-  });//end then
+  //   //declare global var as array
+  //   $scope.allInvestments = [];
+  //
+  //   
 };//end get.invest
 
 //ng option select
