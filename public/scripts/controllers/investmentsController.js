@@ -1,4 +1,4 @@
-myApp.controller('investmentsController',['$scope', '$http', function($scope,$http){
+myApp.controller('investmentsController',['$scope', '$http', 'invFactory',function($scope,$http,invFactory){
   console.log('investmentsController');
 
 //declare allInvestments var global
@@ -12,7 +12,7 @@ $scope.currentInv = true;
 //Getting all investments
 $scope.init = function() {
   console.log('in get invest');
-
+  console.log();
     //declare global var as array
     $scope.allInvestments = [];
 
