@@ -77,7 +77,7 @@ $http({
   $scope.invBought = "";
 });//end then function
 //reload page on click
-// location.reload();
+location.reload();
 };//end saveNewInv scope
 
 
