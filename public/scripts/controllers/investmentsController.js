@@ -1,28 +1,26 @@
-myApp.controller('investmentsController',['$scope', '$http', function($scope,$http){
+myApp.controller('investmentsController',['invFactory','$scope', '$http',function(invFactory, $scope,$http){
   console.log('investmentsController');
-
-//declare allInvestments var global
-var allInvestments;
 
 //hide all forms on page load
 $scope.addNewForm = true;
 $scope.editForm = true;
 $scope.currentInv = true;
 
-//Getting all investments
+
+var allInvestments;
+
+
 $scope.init = function() {
+
   console.log('in get invest');
 
-    //declare global var as array
-    $scope.allInvestments = [];
+//get all investments from factory
+invFactory.allInvestments(function(invFactory) {
+  $scope.allInvestments = invFactory;
+    console.log($scope.allInvestments,'this is $scope.allInvestments inside the get?');
+  });
 
-    //http call to get investments
-    $http({
-      method: 'GET',
-      url: '/investments'
-        }).then(function(response){
-          $scope.allInvestments = response.data;
-  });//end then
+  console.log($scope.allInvestments,'this is $scope.allInvestments');
 };//end get.invest
 
 //ng option select
@@ -64,9 +62,9 @@ console.log(newInv,'ObjectToSend');
 
 $http({
     method:'POST',
-      url: '/newInv',
-        data: newInv
-  }).then(function(response){
+    url: '/newInv',
+    data: newInv
+      }).then(function(response){
     console.log(response);
 
   //clear input fields
@@ -94,9 +92,9 @@ console.log(editsToSend, 'EDITS EDITS ');
 
   $http({
     method: 'PUT',
-      url: '/updateInv',
-        data: editsToSend
-  }).then(function(response){
+    url: '/updateInv',
+    data: editsToSend
+}).then(function(response){
     console.log(response);
 
     //clear input fields
@@ -106,7 +104,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
   //reload page on click
-  // location.reload();
+  location.reload();
 };//end save changes to DB record
 
 $scope.deleteInvest = function(){
@@ -122,13 +120,13 @@ console.log('delete delete  clientside : ', objectToDelete);
 
   $http({
     method: 'POST',
-      url:'/deleteInv',
-        data: objectToDelete
-  }).then(function(response){
+    url:'/deleteInv',
+    data: objectToDelete
+}).then(function(response){
     console.log(response);
   });//end then for http
   //reload page on click
-  // location.reload();
+  location.reload();
 };//end delete function
 
 //get all investments on load
