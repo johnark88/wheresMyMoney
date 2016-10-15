@@ -1,5 +1,7 @@
-myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope, $http, $timeout){
+myApp.controller('homeController', ['invFactory','$scope','$http', '$timeout',function(invFactory,$scope, $http, $timeout){
   console.log('homeController');
+
+  var allInvHome = [];
 
   //newsapi.org
   var sourcesAPI = 'https://newsapi.org/v1/sources?language=en';
@@ -49,7 +51,7 @@ myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope
     method: 'GET',
       url: yahoo
     }).then(function(response){
-    console.log(response);
+    // console.log(response);
     $scope.stockQuotes = response.data.query.results.quote;
     errorCount = 0;
       nextLoad();
@@ -75,5 +77,19 @@ myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope
   $scope.$on('$destroy', function() {
       cancelNextLoad();
       });
-    $scope.stockQuotes = 'Loading...';
+
+    //get all investments from factory
+    invFactory.allInvestments(function(invFactory) {
+      $scope.allInvHome = invFactory;
+        console.log($scope.allInvHome,'this is $scope.allInvHome inside homeController?');
+
+          //loopp through Array and sum values in amountinvested and profitLoss
+          // add scope to display 
+        $scope.totalInvested = 0;
+        $scope.totalProfitLoss = 0;
+        for (var i = 0; i < $scope.allInvHome.length; i++) {
+        $scope.totalInvested += Number($scope.allInvHome[i].amountinvested);
+        $scope.totalProfitLoss += Number($scope.allInvHome[i].profitloss);
+        }
+      });
 }]);//end controller
