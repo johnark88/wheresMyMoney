@@ -14,12 +14,14 @@ myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope
   $scope.init =function(){
     $http({
       method: 'GET',
-        url: sourcesAPI
-      }).then(function(response){
+      url: sourcesAPI
+    }).then(function(response){
         console.log(response.data.sources);
         $scope.allSources = response.data.sources;
-      });//end then http
+
+  });//end then http
 };//end init scope for news and stock quotes
+
       $scope.init();
 
     //get selected source from drop down and get articles from that
@@ -27,8 +29,8 @@ myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope
     console.log($scope.selectedSource.id);
     $http({
       method:'GET',
-        url: "https://newsapi.org/v1/articles?source="+$scope.selectedSource.id+"&sortBy=top&apiKey=c28f8197835d4d338e3bd3b0456e68cd"
-      }).then(function(response){
+      url: "https://newsapi.org/v1/articles?source="+$scope.selectedSource.id+"&sortBy=top&apiKey=c28f8197835d4d338e3bd3b0456e68cd"
+    }).then(function(response){
         console.log(response.data.articles);
         $scope.newsArticles = response.data.articles;
       });//end then
@@ -46,26 +48,26 @@ myApp.controller('homeController', ['$scope','$http', '$timeout',function($scope
     $http({
     method: 'GET',
       url: yahoo
-        }).then(function(response){
-          console.log(response);
-           $scope.stockQuotes = response.data.query.results.quote;
-            // $scope.stockQuotes
-            console.log($scope.stockQuotes, 'AFTER THE SWITCH @@@@@@');
-              errorCount = 0;
-                nextLoad();
-                  }).catch(function(response){
-                    $scope.stockQuotes = 'Server Error';
-                      nextLoad(++errorCount * 2 * loadTime);
-                    });
-};
-        var cancelNextLoad = function(){
-          $timeout.cancel(loadPromise);
-          };
-    var nextLoad = function(mill){
-      mill = mill || loadTime;
+    }).then(function(response){
+    console.log(response);
+    $scope.stockQuotes = response.data.query.results.quote;
+    errorCount = 0;
+      nextLoad();
+  }).catch(function(response){
+    $scope.stockQuotes = 'Server Error';
+    nextLoad(++errorCount * 2 * loadTime);
+  });//end catch
+};//end getData function
+
+    var cancelNextLoad = function(){
+    $timeout.cancel(loadPromise);
+    };
+
+      var nextLoad = function(mill){
+        mill = mill || loadTime;
         cancelNextLoad();
-          $timeout(getData, mill);
-};
+        $timeout(getData, mill);
+      };
 
   //start getting gata
   getData();
