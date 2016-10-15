@@ -77,7 +77,7 @@ $scope.saveNewLoan = function(){
               });//end then on HTTP
 
         //reload page on click
-        // location.reload();
+        location.reload();
 };//save new loan to the DB
 
 $scope.editLoan = function(){
@@ -104,12 +104,12 @@ console.log('save Edit Changes');
           console.log(updatesToSend);
           $http({
             method: 'PUT',
-              url:'/updateLoan',
-                  data: updatesToSend
-                  }).then(function(response){
-                    console.log(response,'edits have been saved for this loan');
-                  });//end http then
-            // location.reload();
+            url:'/updateLoan',
+            data: updatesToSend
+          }).then(function(response){
+              console.log(response,'edits have been saved for this loan');
+          });//end http then
+            location.reload();
 };//end save edit changes loans
 
   $scope.makePayments = function(){
@@ -117,18 +117,18 @@ console.log('save Edit Changes');
 
       var paymentDataToSend = {
         date:$scope.paymentDate,
-          amount: $scope.paymentAmt,
-            loanid: $scope.selectedLoan.loanid
+        amount: $scope.paymentAmt,
+        loanid: $scope.selectedLoan.loanid
       };//end object to send
 
           $http({
             method: 'POST',
-              url: '/savePayment',
-                data: paymentDataToSend
-                }).then(function(response){
-                  console.log(response);
-                });//end then
-            // location.reload();
+            url: '/savePayment',
+            data: paymentDataToSend
+          }).then(function(response){
+              console.log(response);
+          });//end then
+            location.reload();
         };//end make payments
 
 $scope.init();

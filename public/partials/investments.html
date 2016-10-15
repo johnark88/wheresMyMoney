@@ -15,9 +15,9 @@
   <form name="currentInv" novalidate id="currentForm">
     <div ng-model="selectedInv" >
           <span> Bank: {{selectedInv.bank}} </span> ||
-          <span> Currently Invested: {{selectedInv.amountinvested}} </span> ||
+          <span> Currently Invested: ${{selectedInv.amountinvested}} </span> ||
           <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> ||
-          <span>Current P/L: {{selectedInv.profitloss}}</span> ||
+          <span>Current P/L: ${{selectedInv.profitloss}}</span> ||
           <span>Sold: {{selectedInv.solddate}} </p>
     </div>
   </form>

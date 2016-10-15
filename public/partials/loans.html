@@ -11,10 +11,10 @@
   <form name="currentLoanFrom" novalidate id="currentLoanForm">
     <div ng-model="selectedLoan" >
           <span>From: {{selectedLoan.fromwho}} </span> ||
-          <span>Amount: {{selectedLoan.amount}}</span> ||
-          <span>Curent Interest Rate : {{selectedLoan.interestrate}}</span> ||
-          <span>Current Duration : {{selectedLoan.duration}} </span> ||
-          <span>Current Monthly Payment : {{selectedLoan.monthlypayment}}</span> ||
+          <span>Amount: ${{selectedLoan.amount}}</span> ||
+          <span>Curent Interest Rate : {{selectedLoan.interestrate}}%</span> ||
+          <span>Current Duration : {{selectedLoan.duration}}m </span> ||
+          <span>Current Monthly Payment : ${{selectedLoan.monthlypayment}}</span> ||
           <span>Notes : {{selectedLoan.notes}}</span>
           <div>
           <button type="button" class="btn btn-sm btn-primary" ng-click="editLoan()"name="button"> Edit this loan </button>
