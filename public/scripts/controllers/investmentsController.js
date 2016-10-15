@@ -6,16 +6,21 @@ $scope.addNewForm = true;
 $scope.editForm = true;
 $scope.currentInv = true;
 
+
 var allInvestments;
 
-//Getting all investments
+
 $scope.init = function() {
+
   console.log('in get invest');
 
+//get all investments from factory
+invFactory.allInvestments(function(invFactory) {
+  $scope.allInvestments = invFactory;
+    console.log($scope.allInvestments,'this is $scope.allInvestments inside the get?');
+  });
 
-  console.log(invFactory);
-  $scope.allInvestments = invFactory.getArray();
-  console.log($scope.allInvestments,'WORK@!');
+  console.log($scope.allInvestments,'this is $scope.allInvestments');
 };//end get.invest
 
 //ng option select
@@ -57,9 +62,9 @@ console.log(newInv,'ObjectToSend');
 
 $http({
     method:'POST',
-      url: '/newInv',
-        data: newInv
-  }).then(function(response){
+    url: '/newInv',
+    data: newInv
+      }).then(function(response){
     console.log(response);
 
   //clear input fields
@@ -70,7 +75,7 @@ $http({
   $scope.invBought = "";
 });//end then function
 //reload page on click
-// location.reload();
+location.reload();
 };//end saveNewInv scope
 
 
@@ -87,9 +92,9 @@ console.log(editsToSend, 'EDITS EDITS ');
 
   $http({
     method: 'PUT',
-      url: '/updateInv',
-        data: editsToSend
-  }).then(function(response){
+    url: '/updateInv',
+    data: editsToSend
+}).then(function(response){
     console.log(response);
 
     //clear input fields
@@ -99,7 +104,7 @@ console.log(editsToSend, 'EDITS EDITS ');
     $scope.selectedInv.investmentid = "";
   });//end then
   //reload page on click
-  // location.reload();
+  location.reload();
 };//end save changes to DB record
 
 $scope.deleteInvest = function(){
@@ -115,13 +120,13 @@ console.log('delete delete  clientside : ', objectToDelete);
 
   $http({
     method: 'POST',
-      url:'/deleteInv',
-        data: objectToDelete
-  }).then(function(response){
+    url:'/deleteInv',
+    data: objectToDelete
+}).then(function(response){
     console.log(response);
   });//end then for http
   //reload page on click
-  // location.reload();
+  location.reload();
 };//end delete function
 
 //get all investments on load
