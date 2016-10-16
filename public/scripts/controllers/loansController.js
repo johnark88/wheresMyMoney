@@ -28,32 +28,27 @@ $scope.init = function(){
         //get loan payments
         $http({
           method: 'GET',
-            url:'/loanpayments'
-            }).then(function(response){
-              $scope.allLoanPayments = response.data;
-                console.log($scope.allLoanPayments,'payments from server');
-              });
-            };//end scope dot init
+          url:'/loanpayments'
+        }).then(function(response){
+            $scope.allLoanPayments = response.data;
+            console.log($scope.allLoanPayments,'payments from server');
+        });
+  };//end scope dot init
 
   //ng option select
   //on select show edit form
   $scope.loan = function(selectedLoan){
     console.log($scope.selectedLoan);
-        $scope.newLoanForm = true;
-            $scope.currentLoanForm = false;
-          // if (loanid has loan payments  ) {
-          //     load loanPayments display
-          // }else {
-          //   hide tit
-          // }
+    $scope.newLoanForm = true;
+    $scope.currentLoanForm = false;
   };//end scope.inv
 
-  $scope.addNewLoan = function(){
-    $scope.newLoanForm = false;
-      $scope.editLoanForm = true;
+      $scope.addNewLoan = function(){
+        $scope.newLoanForm = false;
+        $scope.editLoanForm = true;
         $scope.loanPayments = true;
-          $scope.currentLoanForm =true;
-            $scope.selectedLoan = "";
+        $scope.currentLoanForm =true;
+        $scope.selectedLoan = "";
   };//end addNew scope
 
 $scope.saveNewLoan = function(){
@@ -61,38 +56,39 @@ $scope.saveNewLoan = function(){
 
     var newLoanToSend = {
       fromwho: $scope.loanFromWho,
-        amount:$scope.loanAmount,
-          duration:$scope.loanDuration,
+      amount:$scope.loanAmount,
+      duration:$scope.loanDuration,
       interestrate: $scope.loanInterestrate,
-        monthlyPay: $scope.loanMonthlyPayment,
-          notes:$scope.loanNotes
+      monthlyPay: $scope.loanMonthlyPayment,
+      notes:$scope.loanNotes
     };//end object to send
 
         $http({
           method:'POST',
-            url: '/saveNewLoan',
-              data: newLoanToSend
-              }).then(function(response){
-                console.log(response);
-              });//end then on HTTP
+          url: '/saveNewLoan',
+          data: newLoanToSend
+        }).then(function(response){
+            console.log(response);
+        });//end then on HTTP
 
-        //reload page on click
-        location.reload();
+            //reload page on click
+            location.reload();
+
 };//save new loan to the DB
 
-$scope.editLoan = function(){
-  $scope.editLoanForm = false;
-  $scope.loanPayments = true;
-};//end show edit form
+    $scope.editLoan = function(){
+      $scope.editLoanForm = false;
+      $scope.loanPayments = true;
+    };//end show edit form
 
-$scope.showPayments = function(){
-  $scope.loanPayments = false;
-};//end show add payments and payments log
+    $scope.showPayments = function(){
+      $scope.loanPayments = false;
+    };//end show add payments and payments log
 
 
 
 $scope.saveEditChanges = function(){
-console.log('save Edit Changes');
+  console.log('save Edit Changes');
 
     var updatesToSend = {
       rate: $scope.newRate,
@@ -138,7 +134,7 @@ console.log('save Edit Changes');
         userId: $scope.selectedLoan.user_id
       };//end object to send
         console.log(objectToDelete, 'I am going to delete this');
-          // had to use POST, when DELETE used req.body comes back undefined 
+          // had to use POST, when DELETE used req.body comes back undefined
         $http({
           method: 'POST',
           url:'/deleteLoan',
