@@ -1,4 +1,4 @@
-myApp.controller('loansController', ['$scope','$http', function($scope, $http){
+myApp.controller('loansController', ['loanFactory','$scope','$http', function(loanFactory,$scope, $http){
   console.log('homeController');
 
 //declare all loans var global
@@ -16,24 +16,18 @@ $scope.init = function(){
     //make it an array
       $scope.allLoans = [];
 
-//get all loans from server
-  $http({
-    method: 'GET',
-      url:'/loans'
-      }).then(function(response){
-        console.log(response.data,'loans from server');
-        $scope.allLoans = response.data;
-      });//end then from http
+      //get all loans from factory
+      loanFactory.allLoans(function(loanFactory) {
+          $scope.allLoans = loanFactory;
+          console.log($scope.allLoans,'this is $scope.allLoans');
+        });
 
         //get loan payments
-        $http({
-          method: 'GET',
-          url:'/loanpayments'
-        }).then(function(response){
-            $scope.allLoanPayments = response.data;
-            console.log($scope.allLoanPayments,'payments from server');
-        });
-  };//end scope dot init
+        loanFactory.allLoanPayments(function(loanFactory) {
+            $scope.allLoanPayments = loanFactory;
+            console.log($scope.allLoanPayments,'this is $scope.allLoanPayments');
+          });
+};//end scope dot init
 
   //ng option select
   //on select show edit form
