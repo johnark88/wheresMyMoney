@@ -1,4 +1,4 @@
-myApp.controller('homeController', ['invFactory','$scope','$http', '$timeout',function(invFactory,$scope, $http, $timeout){
+myApp.controller('homeController', ['invFactory','loanFactory','$scope','$http', '$timeout',function(invFactory,loanFactory,$scope, $http, $timeout){
   console.log('homeController');
 
   var allInvHome = [];
@@ -84,12 +84,24 @@ myApp.controller('homeController', ['invFactory','$scope','$http', '$timeout',fu
         console.log($scope.allInvHome,'this is $scope.allInvHome inside homeController?');
 
           //loopp through Array and sum values in amountinvested and profitLoss
-          // add scope to display 
-        $scope.totalInvested = 0;
-        $scope.totalProfitLoss = 0;
-        for (var i = 0; i < $scope.allInvHome.length; i++) {
-        $scope.totalInvested += Number($scope.allInvHome[i].amountinvested);
-        $scope.totalProfitLoss += Number($scope.allInvHome[i].profitloss);
-        }
-      });
+          // add scope to display
+            $scope.totalInvested = 0;
+            $scope.totalProfitLoss = 0;
+            for (var i = 0; i < $scope.allInvHome.length; i++) {
+            $scope.totalInvested += Number($scope.allInvHome[i].amountinvested);
+            $scope.totalProfitLoss += Number($scope.allInvHome[i].profitloss);
+          }//end for looop
+      });//end invFactory
+
+      loanFactory.allLoans(function(loanFactory){
+        $scope.allLoansHome = loanFactory;
+          console.log($scope.allLoansHome, 'This is all loans for homepage');
+
+            $scope.totalOwe = 0;
+            $scope.totalMonthly = 0;
+            for (var i = 0; i < $scope.allLoansHome.length; i++) {
+              $scope.totalOwe += Number($scope.allLoansHome[i].amount);
+              $scope.totalMonthly += Number($scope.allLoansHome[i].monthlypayment);
+          }
+      });//end loan factory
 }]);//end controller
