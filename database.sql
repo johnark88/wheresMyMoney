@@ -1,7 +1,3 @@
-
-
-
-
 -- users table
 CREATE TABLE users  (
 		id SERIAL PRIMARY KEY,
@@ -20,7 +16,7 @@ CREATE TABLE loans  (
 		notes VARCHAR(500)
 	);
 
--- loans Archive Table 
+-- loans Archive Table
 	CREATE TABLE loansArchive  (
 		loanid SERIAL PRIMARY KEY,
 		user_id INT REFERENCES users (id),

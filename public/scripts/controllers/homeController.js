@@ -5,8 +5,6 @@ myApp.controller('homeController', ['invFactory', 'loanFactory', '$scope', '$htt
 
     //newsapi.org
     var sourcesAPI = 'https://newsapi.org/v1/sources?language=en';
-    //top news from Wall Street Journal
-    var newsAPI = 'https://newsapi.org/v1/articles?source=the-wall-street-journal&sortBy=top&apiKey=c28f8197835d4d338e3bd3b0456e68cd';
     var newsArticles = [];
 
     //Finance API's
@@ -93,6 +91,7 @@ myApp.controller('homeController', ['invFactory', 'loanFactory', '$scope', '$htt
         } //end for looop
     }); //end invFactory
 
+    //get all loans from factory and sum values to display on home page
     loanFactory.allLoans(function(loanFactory) {
         $scope.allLoansHome = loanFactory;
         console.log($scope.allLoansHome, 'This is all loans for homepage');
