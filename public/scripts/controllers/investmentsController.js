@@ -119,6 +119,7 @@ var objectToDelete = {
 console.log('delete delete  clientside : ', objectToDelete);
 
   $http({
+    //this is a post because 'DELETE' was not working
     method: 'POST',
     url:'/deleteInv',
     data: objectToDelete

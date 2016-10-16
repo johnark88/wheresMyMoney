@@ -31,7 +31,28 @@ var investmentid = req.body.invId;
       res.send({success: true});
     }//end else
   });//end pg connect
-  });//end router dot put
+});//end router dot post(read: DELETE)
+
+router.post('/deleteLoan', function(req,res){
+  console.log('in router dot delete');
+
+    var loanId = req.body.loanId;
+    var userId = req.body.userId;
+      console.log(loanId,userId,'Delete route server side ');
+
+
+      pg.connect(connectionString, function(err,client,done){
+        if (err) {
+          console.log(err);
+        }else {
+          console.log('Connected to DB / del route');
+          client.query('INSERT INTO loansArchive SELECT loanid, user_id, fromwho, amount, duration, interestrate, monthlypayment, notes,date FROM loans	WHERE loanid = ($1) and user_id = ($2)',[loanId, userId]);
+          client.query('DELETE FROM loans WHERE loanid = ($1) and user_id = ($2)', [loanId, userId]);
+          res.send({success: true});
+        }//end else
+      });//end pg connect
+
+});//end router dot delete
 
 
 module.exports = router;

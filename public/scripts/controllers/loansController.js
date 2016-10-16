@@ -131,5 +131,23 @@ console.log('save Edit Changes');
             location.reload();
         };//end make payments
 
+  $scope.deleteLoan = function(){
+
+      var objectToDelete = {
+        loanId: $scope.selectedLoan.loanid,
+        userId: $scope.selectedLoan.user_id
+      };//end object to send
+        console.log(objectToDelete, 'I am going to delete this');
+          // had to use POST, when DELETE used req.body comes back undefined 
+        $http({
+          method: 'POST',
+          url:'/deleteLoan',
+          data: objectToDelete
+        }).then(function(response){
+            console.log(response);
+        });//end then http
+          // location.reload();
+  };//end deleteLoan function
+
 $scope.init();
-}]);
+}]);//end loansController
