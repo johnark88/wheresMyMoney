@@ -8,23 +8,11 @@ myApp.factory('loanFactory', function($http){
       }).success(callback);
     },//end function callback
 
-    allLoanPayments: function(callback){
-
-    $http({
-      method: 'GET',
-      url:'/loanpayments'
-    }).success(callback);
-    }
-
-
-
+      allLoanPayments: function(callback){
+          $http({
+            method: 'GET',
+            url:'/loanpayments'
+          }).success(callback);
+      }//end function callback
   };//end return object
-
-
-
-
-
-  return {
-};
-
 }); //end myApp loan factory
