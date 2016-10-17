@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <script src="scripts/clientside.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title">
-    <link rel="stylesheet" href="styles/stylesheet.css" media="screen" title="no title">
-    <script src="/scripts/Factories/invFactory.js" charset="utf-8"></script>
-    <script src="/scripts/Factories/loanFactory.js" charset="utf-8"></script>
-    <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
-    <script src="/scripts/controllers/investmentsController.js" charset="utf-8"></script>
-    <script src="/scripts/controllers/loansController.js" charset="utf-8"></script>
-    <script src="/scripts/controllers/logInController.js" charset="utf-8"></script>
 
-      <title>Where's my Money? </title>
-  </head>
-  <body ng-app='myApp'>
-    <ul class="topnav" id="myTopnav">
-        <li><a href="#/"> Log In </a></li>
-        <li><a href="#home"> Home </a></li>
-        <li><a href="#investments"> Investments </a></li>
-        <li><a href="#loans"> Loans </a></li>
-      <li class="icon">
-        <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-      </li>
-    </ul>
-      <main ng-view></main>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.auth0.com/js/lock-8.1.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <script src="vendors/angular.min.js" charset="utf-8"></script>
+        <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+        <script src="scripts/clientside.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no title">
+        <link rel="stylesheet" href="styles/stylesheet.css" media="screen" title="no title">
+        <script src="/scripts/Factories/invFactory.js" charset="utf-8"></script>
+        <script src="/scripts/Factories/loanFactory.js" charset="utf-8"></script>
+        <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
+        <script src="/scripts/controllers/investmentsController.js" charset="utf-8"></script>
+        <script src="/scripts/controllers/loansController.js" charset="utf-8"></script>
+        <script src="/scripts/controllers/logInController.js" charset="utf-8"></script>
+        <script src="/scripts/controllers/btcController.js" charset="utf-8"></script>
+
+        <title>Where's my Money? </title>
+    </head>
+
+    <body ng-app='myApp'>
+        <ul class="topnav" id="myTopnav">
+            <li><a href="#/"> Log In </a></li>
+            <li><a href="#home"> Home </a></li>
+            <li><a href="#investments"> Investments </a></li>
+            <li><a href="#loans"> Loans </a></li>
+            <li><a href="#BTC"> Bitcoin </a></li>
+        </ul>
+        <main ng-view></main>
+    </body>
+
 </html>

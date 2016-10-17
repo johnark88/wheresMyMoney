@@ -18,9 +18,11 @@ myApp.config(["$routeProvider", function($routeProvider) {
         templateUrl: "partials/loans.html",
         controller: "loansController"
     }).
+    when("/BTC", {
+        templateUrl: "partials/btc.html",
+        controller: "btcController"
+    }).
     otherwise({
         redirectTo: "/"
     });
-    //change this so each route requries auth0 verification *****************************
-
 }]); //end config routing
