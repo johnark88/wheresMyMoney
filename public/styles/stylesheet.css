@@ -6,7 +6,9 @@ ul.topnav {
     background-color: #159b9b;
 }
 
-ul.topnav li {float: left;}
+ul.topnav li {
+    float: left;
+}
 
 ul.topnav li a {
     display: inline-block;
@@ -18,6 +20,10 @@ ul.topnav li a {
     font-size: 17px;
 }
 
-ul.topnav li a:hover {background-color: #555;}
+ul.topnav li a:hover {
+    background-color: #555;
+}
 
-ul.topnav li.icon {display: none;}
+ul.topnav li.icon {
+    display: none;
+}

@@ -1,46 +1,56 @@
 /* drop down menu and add new button */
-.selectLoan{
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 10px;
+
+.selectLoan {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
+
+
 /*current form inside*/
-#currentLoanForm{
-  text-align: center;
-  display: inline;
-  margin-bottom: 20px;
+
+#currentLoanForm {
+    text-align: center;
+    /*display: inline;*/
+    margin-bottom: 20px;
 }
 
 
 /*edit form container*/
-.editcontainer{
-  margin-top: 30px;
-  text-align: center;
+
+.editcontainer {
+    margin-top: 30px;
+    text-align: center;
 }
 
-#editLoanForm{
-  text-align: center;
-  margin-bottom: 20px;
+#editLoanForm {
+    text-align: center;
+    margin-bottom: 20px;
 }
+
 
 /*loan payments list display*/
-#loanPayments{
-  margin-top: 20px;
-  text-align: center;
 
+#loanPayments {
+    margin-top: 20px;
+    text-align: center;
 }
+
 
 /*new loan conatiner*/
-.newLoan{
-  margin-top: 30px;
-  text-align: center;
+
+.newLoan {
+    margin-top: 30px;
+    text-align: center;
 }
+
 
 /*new loan form inside container*/
-#newLoanForm{
-text-align: center;
+
+#newLoanForm {
+    text-align: center;
 }
 
-input{
-  text-align: center;
+input {
+    text-align: center;
 }

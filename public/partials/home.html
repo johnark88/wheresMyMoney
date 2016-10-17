@@ -1,25 +1,25 @@
 <link rel="stylesheet" href="/styles/homeStyleSheet.css" media="screen" title="no title">
 
 <div class="marquee">
-  <span>
+    <span>
 <span ng-repeat="stocks in stockQuotes track by $index">{{stocks.Symbol}} {{stocks.Ask}} {{stocks.Change}} ** </span>
-  </span>
+    </span>
 </div>
 
 
 
-  <div class="Totals" >
+<div class="totals">
     <p>Total Invested : ${{totalInvested}}</p>
     <p> Total P/L : ${{totalProfitLoss}}</p>
     <p>Total you owe : ${{totalOwe}} || Total Monthly Payments: ${{totalMonthly}} </p>
-  </div>
+</div>
 
-  <div class="select">
+<div class="select">
     <span id="newsLine"> Select your news source </span>
     <select ng-change="source(selectedSource)" ng-model="selectedSource" ng-options="source as source.name for source in allSources"></select>
-  </div>
+</div>
 
-  <ul id="newsDisplay" class="flex-container"  ng-repeat="news in newsArticles">
+<ul id="newsDisplay" class="flex-container" ng-repeat="news in newsArticles">
     <li><img id="img" src="{{news.urlToImage}}" alt="" class="expand" /></li>
     <li id="listItem">{{news.title}} </li>
     <li id="listItem"><a ng-href="{{news.url}}">Link</a></li>
