@@ -1,9 +1,5 @@
-.getPrice {
-    text-align: center;
-    margin-top: 10px;
-}
-
 .priceDisplay {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    list-style-type: none;
 }

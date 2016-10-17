@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({extended: false});
+var urlencodedParser = bodyParser.urlencoded({
+    extended: false
+});
 var pg = require('pg');
 var portDecision = process.env.PORT || 4040;
 var connectionString = 'postgress://localhost:5432/wmm';
@@ -10,12 +12,12 @@ var connectionString = 'postgress://localhost:5432/wmm';
 app.use(bodyParser.json());
 
 //choose port send respons
-app.listen(portDecision, function(){
-  console.log('Im listening on ', portDecision);
+app.listen(portDecision, function() {
+    console.log('Im listening on ', portDecision);
 });
 
 //Delete Route
-var delRoute =require('./routes/delRoute');
+var delRoute = require('./routes/delRoute');
 app.use('/', delRoute);
 
 //index route
