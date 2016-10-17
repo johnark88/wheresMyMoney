@@ -2,7 +2,7 @@
 
 <!-- drop down and add new button -->
 <div class="selectLoan">
-    <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> Add new loan </button>
+    <button ng-click="addNewLoan()" type="button" name="button" class="btn btn-sm btn-primary"> New loan </button>
     <select ng-change="loan(selectedLoan)" ng-model="selectedLoan" ng-options="loan as loan.fromwho for loan in allLoans"></select>
 </div>
 

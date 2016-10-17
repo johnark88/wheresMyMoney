@@ -8,7 +8,7 @@ myApp.controller('homeController', ['invFactory', 'loanFactory', '$scope', '$htt
     var newsArticles = [];
 
     //Finance API's
-    var yahoo = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22YHOO%20MSFT%20KO%20JNJ%20WFC%20COP%20WM%20ADP%20GM%20STX%20GLD%20PG%20T%20GD%20XOM%20GOOG%20AAPL%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+    var yahoo = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22YHOO%20MSFT%20IVV%20IEMG%20KO%20JNJ%20WFC%20COP%20WM%20ADP%20GM%20STX%20GLD%20PG%20T%20GD%20XOM%20GOOG%20AAPL%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
     var stockQuotes;
 
     $scope.init = function() {
@@ -88,6 +88,7 @@ myApp.controller('homeController', ['invFactory', 'loanFactory', '$scope', '$htt
         for (var i = 0; i < $scope.allInvHome.length; i++) {
             $scope.totalInvested += Number($scope.allInvHome[i].amountinvested);
             $scope.totalProfitLoss += Number($scope.allInvHome[i].profitloss);
+            $scope.totalProfitLoss.toPrecision(4);
         } //end for looop
     }); //end invFactory
 
