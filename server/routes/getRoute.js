@@ -78,16 +78,5 @@ router.get('/loanpayments', function(req, res) {
     }); //end pg connect
 }); //end router get loan payments
 
-module.exports = router;
-console.log(resultsArray);
-}); //end query.on row
-
-queryResults.on('end', function() {
-done();
-return res.json(resultsArray);
-}); //end queryResults.on end
-} //end if err else
-}); //end pg connect
-}); //end router get loan payments
 
 module.exports = router;
