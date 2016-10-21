@@ -2,6 +2,7 @@ p {
     margin: 10px;
 }
 
+
 .totals {
     text-align: center;
 }
@@ -21,6 +22,19 @@ img {
     image-resolution: snap;
     width: 15em;
 }
+
+
+#newsDisplay {
+    font-size: 10px;
+    font-family: sans-serif;
+    list-style-type: none;
+}
+
+img {
+    image-resolution: snap;
+    width: 15em;
+}
+
 
 .select {
     text-align: center;
@@ -62,7 +76,6 @@ img {
 
 
 /* Make it move */
-
 @keyframes marquee {
     0% {
         transform: translate(0, 0);

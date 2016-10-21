@@ -1,5 +1,5 @@
 myApp.controller('loansController', ['loanFactory', '$scope', '$http', function(loanFactory, $scope, $http) {
-    console.log('homeController');
+    console.log('loansController');
 
     //declare all loans var global
     var allLoans;
