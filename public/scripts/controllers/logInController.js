@@ -19,7 +19,7 @@ myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$fire
             firebaseUser.getToken().then(function(idToken) {
                 $http({
                     method: 'GET',
-                    url: '/secretData',
+                    url: '/status',
                     headers: {
                         id_token: idToken
                     } //end http
@@ -40,9 +40,4 @@ myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$fire
             console.log('Logging the user out!');
         }); //end then
     }; //end log out
-
-
-var emptyLocalStorage = function() {
-    localStorage.removeItem(idToken);
-}; // end emptyLocalStorage
 }]); //end homeController
