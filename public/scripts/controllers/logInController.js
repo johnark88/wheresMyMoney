@@ -1,6 +1,9 @@
 myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$firebaseAuth', function($scope, $http, $firebaseArray, $firebaseAuth) {
     console.log('NG');
 
+
+
+
     var auth = $firebaseAuth();
 
     $scope.logIn = function login() {
@@ -24,19 +27,19 @@ myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$fire
                         id_token: idToken
                     } //end http
                 }).then(function(response) {
-                    $scope.secretData = response.data;
+                    console.log(response.data);
                 }); //end then
             }); //end firebaseUser get token
         } else {
             console.log('Not logged in.');
-            $scope.secretData = "Log in to get some secret data.";
+            console.log("Log in to get some secret data.");
         } //end else
     }); //end auth state change
 
     // This code runs when the user logs out
     $scope.logOut = function() {
         auth.$signOut().then(function() {
-          emptyLocalStorage();
+        
             console.log('Logging the user out!');
         }); //end then
     }; //end log out
