@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 app.listen(portDecision, function() {
     console.log('Im listening on ', portDecision);
 });
-
+var auth = require('./routes/auth');
+app.use('/', auth);
 //Delete Route
 var delRoute = require('./routes/delRoute');
 app.use('/', delRoute);
