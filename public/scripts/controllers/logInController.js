@@ -39,7 +39,7 @@ myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$fire
     // This code runs when the user logs out
     $scope.logOut = function() {
         auth.$signOut().then(function() {
-        
+
             console.log('Logging the user out!');
         }); //end then
     }; //end log out

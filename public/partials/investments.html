@@ -3,33 +3,33 @@
 
 <!-- Drop down of current Investments   -->
 <div class="select">
-  <button class="btn btn-sm btn-primary" ng-click="addNew()" type="button" name="button"> New Investment</button>
-<!-- add new button -->
-<div class="addNew">
-    <button class="btn btn-sm btn-primary" ng-click="addNew()" type="button" name="button"> Add new Investment</button>
-</div>
+    <button class="btn btn-sm btn-primary" ng-click="addNew()" type="button" name="button"> New Investment</button>
+    <!-- add new button -->
+    <div class="addNew">
+        <button class="btn btn-sm btn-primary" ng-click="addNew()" type="button" name="button"> Add new Investment</button>
+    </div>
 
-<!-- Drop down of current Investments   -->
-<div class="select">
-    <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol for inv in allInvestments"></select>
-</div>
+    <!-- Drop down of current Investments   -->
+    <div class="select">
+        <select ng-change="inv(selectedInv)" ng-model="selectedInv" ng-options="inv as inv.stocksymbol for inv in allInvestments"></select>
+    </div>
 
-<!-- shows non editable info of selection from drop down  -->
-<div class="currentInv" ng-hide="currentInv">
-    <form name="currentInv" novalidate id="currentForm">
-        <div ng-model="selectedInv">
-            <span> Bank: {{selectedInv.bank}} </span> <br>
-            <span> Currently Invested: ${{selectedInv.amountinvested}} </span> <br>
-            <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> <br>
-            <span>Current P/L: ${{selectedInv.profitloss}}</span> <br>
-            <span>Sold: {{selectedInv.solddate}} </span>
-        </div>
-    </form>
-            <span> Bank: {{selectedInv.bank}} </span> ||
-            <span> Currently Invested: ${{selectedInv.amountinvested}} </span> ||
-            <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> ||
-            <span>Current P/L: ${{selectedInv.profitloss}}</span> ||
-            <span>Sold: {{selectedInv.solddate}} </p>
+    <!-- shows non editable info of selection from drop down  -->
+    <div class="currentInv" ng-hide="currentInv">
+        <form name="currentInv" novalidate id="currentForm">
+            <div ng-model="selectedInv">
+                <span> Bank: {{selectedInv.bank}} </span> <br>
+                <span> Currently Invested: ${{selectedInv.amountinvested}} </span> <br>
+                <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> <br>
+                <span>Current P/L: ${{selectedInv.profitloss}}</span> <br>
+                <span>Sold: {{selectedInv.solddate}} </span>
+            </div>
+        </form>
+        <span> Bank: {{selectedInv.bank}} </span> ||
+        <span> Currently Invested: ${{selectedInv.amountinvested}} </span> ||
+        <span>Stock Symbol: {{selectedInv.stocksymbol}} </span> ||
+        <span>Current P/L: ${{selectedInv.profitloss}}</span> ||
+        <span>Sold: {{selectedInv.solddate}} </p>
     </div>
   </form>
 </div>

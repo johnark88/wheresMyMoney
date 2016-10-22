@@ -12,7 +12,7 @@ firebase.initializeApp({
 
 // This is the route for your secretData
 router.get("/status", function(req, res) {
-        firebase.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
+    firebase.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
             console.log(decodedToken);
             var clientUID = decodedToken.user_id;
             pg.connect(connectionString, function(err, client, done) {
@@ -41,5 +41,5 @@ router.get("/status", function(req, res) {
         // If the id_token isn't right, you end up in this callback function
         res.send("No secret data for you!");
     }); //end catch
-  }); //end firebase auth
+}); //end firebase auth
 module.exports = router;
