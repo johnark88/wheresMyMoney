@@ -1,43 +1,28 @@
-/* eslint-disable */
+// grab our packages
+var gulp   = require('gulp');
+var jshint = require('gulp-jshint');
 
+// define the default task and add the watch task to it
+gulp.task('default', ['watch']);
 
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var  mocha = require('gulp-mocha');
-var  qunit = require('./index');
-
-var paths = {
-    scripts: ['./*.js', '!./gulpfile.js']
-};
-
-gulp.task('lint', function () {
-    return gulp.src(paths.scripts)
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+// configure the jshint task
+gulp.task('jshint', function() {
+  return gulp.src('source/javascript/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('test', function() {
-    return gulp.src('./test/*.js')
-        .pipe(mocha());
+// configure which files to watch and what tasks to use on file changes
+gulp.task('watch', function() {
+  gulp.watch('source/javascript/**/*.js', ['jshint']);
 });
 
-gulp.task('qunit:pass', function() {
-    return gulp.src('./test/fixtures/passing.html')
-        .pipe(qunit());
+gulp.task('build-js', function() {
+  return gulp.src('source/javascript/**/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('bundle.js'))
+      //only uglify if gulp is ran with '--type production'
+      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('public/assets/javascript'));
 });
-
-gulp.task('qunit:fail', function() {
-    return gulp.src('./test/fixtures/failing.html')
-        .pipe(qunit())
-        .on('error', function (err) {
-            console.log(err.toString());
-            this.emit('end');
-        });
-});
-
-gulp.task('watch', function () {
-    gulp.watch(paths.scripts, ['lint', 'test']);
-});
-
-gulp.task('default', ['lint', 'test', 'watch']);
