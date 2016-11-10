@@ -4,7 +4,7 @@
   "description": "Where's my Money? ---------------------------",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint public",
+    "test": "./node_modules/jshint/bin/jshint server",
     "start": "node server/app.js"
   },
   "repository": {
