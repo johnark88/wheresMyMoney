@@ -1,7 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase'])
-.constant('FirebaseDatabaseUrl', 'https://wheres-my-money-dac0d.firebaseio.com');
 
-myApp.config(["$routeProvider", function($routeProvider,$firebaseRefProvider, FirebaseDatabaseUrl) {
+myApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider.
     when("/", {
         templateUrl: "/partials/logIn.html",
@@ -51,3 +50,12 @@ myApp.config(["$routeProvider", function($routeProvider,$firebaseRefProvider, Fi
         redirectTo: "/"
     });
 }]); //end config routing
+myApp.controller('menu', [ '$scope', '$location', function($scope, $location){
+    $scope.$on('$locationChangeStart', function(event) {
+        $scope.view = ($location.path()).replace('/', '');
+        if( $scope.view === "" ) {
+            $scope.view="main";
+        }
+        console.log('VIEW:', $scope.view);
+    });
+}]);
