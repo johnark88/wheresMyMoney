@@ -1,5 +1,4 @@
-Where's my Money?
----------------------------
+# Where's my Money? [![Build Status](https://travis-ci.org/johnark88/wheresMyMoney.svg?branch=master)](https://travis-ci.org/johnark88/wheresMyMoney)
 
 Financial tracker. Keep track of investments loans and get the latest news and stock quotes.
 
