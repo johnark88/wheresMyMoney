@@ -15,6 +15,7 @@ myApp.controller('logInController', ['$scope', '$http', '$firebaseArray', '$fire
     };
 
 
+
     auth.$onAuthStateChanged(function(firebaseUser) {
         // firebaseUser will be null if not logged in
         if (firebaseUser) {

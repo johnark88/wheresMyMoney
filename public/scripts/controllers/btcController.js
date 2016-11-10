@@ -5,7 +5,7 @@ myApp.controller('btcController', ['$scope', '$http', '$timeout', function($scop
 
     $scope.init = function() {
         console.log('here');
-
+          //get current price of btc
         $http({
             method: 'GET',
             url: 'http://api.coindesk.com/v1/bpi/currentprice.json'
@@ -13,7 +13,7 @@ myApp.controller('btcController', ['$scope', '$http', '$timeout', function($scop
             console.log('BTC', response.data.bpi.USD);
             $scope.btcPrice = response.data.bpi.USD;
         });
-
+        //get curent price of etherum 
         $http({
             method: 'GET',
             url: 'https://poloniex.com/public?command=returnTicker'

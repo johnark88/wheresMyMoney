@@ -12,6 +12,7 @@ myApp.controller('homeController', ['invFactory', 'loanFactory', '$scope', '$htt
     var stockQuotes;
 
     $scope.init = function() {
+      //get news sources on page load 
         $http({
             method: 'GET',
             url: sourcesAPI

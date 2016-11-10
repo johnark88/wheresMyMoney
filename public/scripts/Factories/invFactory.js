@@ -9,4 +9,5 @@ myApp.factory('invFactory', function($http) {
                 }).success(callback);
             } //end function callback
     }; //end return object
+    
 }); //end myApp factory

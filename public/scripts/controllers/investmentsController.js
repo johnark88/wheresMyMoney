@@ -14,7 +14,7 @@ myApp.controller('investmentsController', ['invFactory', '$scope', '$http', func
 
         console.log('in get invest');
 
-        //get all investments from factory
+        //get all investments from factory 
         invFactory.allInvestments(function(invFactory) {
             $scope.allInvestments = invFactory;
             console.log($scope.allInvestments, 'this is $scope.allInvestments');

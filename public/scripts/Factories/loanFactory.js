@@ -14,6 +14,7 @@ myApp.factory('loanFactory', function($http) {
                     method: 'GET',
                     url: '/loanpayments'
                 }).success(callback);
+                
             } //end function callback
     }; //end return object
 }); //end myApp loan factory
