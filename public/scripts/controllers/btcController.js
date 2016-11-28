@@ -13,7 +13,7 @@ myApp.controller('btcController', ['$scope', '$http', '$timeout', function($scop
             console.log('BTC', response.data.bpi.USD);
             $scope.btcPrice = response.data.bpi.USD;
         });
-        //get curent price of etherum 
+        //get curent price of etherum
         $http({
             method: 'GET',
             url: 'https://poloniex.com/public?command=returnTicker'
@@ -26,5 +26,7 @@ myApp.controller('btcController', ['$scope', '$http', '$timeout', function($scop
             console.log(timestamp);
         };
     }; //end scope dot init
+
+    
     $scope.init();
 }]); //end BTC controller
